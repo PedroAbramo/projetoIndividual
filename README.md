@@ -58,9 +58,9 @@ Tudo isso é feito através de um **formulário com 15 perguntas de múltipla es
 ## 👨‍💻 Autor
 
 Desenvolvido com dedicação por **Pedro Cesar Abramo de Almeida**  
-📬 Entre em contato comigo para dúvidas ou parcerias!
-✉️ pedro.dalmeida@sptech.school 
-🔗 [LinkedIn](https://www.linkedin.com/in/pedro-cesar-0a91002ab/)
+- 📬 Entre em contato comigo para dúvidas
+- ✉️ pedro.dalmeida@sptech.school 
+- 🔗 [LinkedIn](https://www.linkedin.com/in/pedro-cesar-0a91002ab/)
 
 ---
 
