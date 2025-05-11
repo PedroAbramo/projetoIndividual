@@ -8,7 +8,7 @@ Ideal para jogadores que querem se conhecer melhor, melhorar suas partidas ou ap
 
 ## 🧠 Sobre o Projeto
 
-O **CSProfiler** tem como objetivo classificar jogadores de CS:GO/CS2 em dois eixos principais:
+O **CSProfiler** tem como objetivo classificar jogadores de Counter-Strike em dois eixos principais:
 
 - 🔫 **Perfil Tático**: Função que o jogador mais desempenha nas partidas (Entry Fragger, Support, AWPer, Lurker, Clutcher ou IGL).
 - 🎮 **Perfil de Personalidade**: Estilo de envolvimento do jogador com o jogo (Competitivo Hardcore, Casual, Social, Relaxado ou Aprendiz).
