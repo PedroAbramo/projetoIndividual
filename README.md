@@ -21,7 +21,7 @@ Tudo isso é feito através de um **formulário com 15 perguntas de múltipla es
 
 ✅ Quiz com 15 perguntas (10 táticas + 5 de personalidade)  
 ✅ Classificação automática com base nas respostas  
-✅ Exibição do resultado com frases descritivas e emojis  
+✅ Exibição do resultado com frases descritivas 
 
 ---
 
