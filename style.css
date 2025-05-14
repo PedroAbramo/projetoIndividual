@@ -1,8 +1,6 @@
 /* Importando a fonte (SYNE) */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Syne:wght@400..800&display=swap');
                 
-/* <weight>: Use a value from 100 to 900 */
-/* <uniquifier>: Use a unique and descriptive class name */
 * {
   font-family: "SYNE", sans-serif;
   font-optical-sizing: auto;
@@ -12,26 +10,30 @@
 
 /* Reset e fonte */
 * {
+  /* Margin e Padding tiram as "bordas" que começam por padrão */
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /* O tamanho da div é exatamente o que eu defino Ex: 100x100*/
 }
 body, html {
   font-family: 'Segoe UI', sans-serif;
   background-color: #111;
   color: #fff;
+  overflow-x: hidden; /* Vai esconder caso alguma medida seja ultrapassada, mas somente no eixo X*/
+  scroll-behavior: smooth;
 }
 
 /* HEADER */
 header {
   background: url(images/mirage.png);
   height: 100vh;
+  width: 100%;
+  max-width: 1920px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
     
 }
-
 #logoCS {
   margin-left: 120px;
   width: 50px;
@@ -85,7 +87,16 @@ nav a:hover {
   height: 67px;
   width: 291px;
   border-radius: 60px;
+  cursor: pointer;
+  border: none;
 }
+
+.conteudo-principal button:hover {
+  background-color: #F97316;
+  transition: 0.2s ease;
+  color: #fff;
+}
+
 
 #AgentesCT {
   max-width: auto;
@@ -112,6 +123,198 @@ nav a:hover {
 
 }
 
+.barra-cinza {
+  background-color: #1B1F23;
+  height: 10px;
+  width: 100%;
+  max-width: 1920px;
 
+}
 
+/* Vídeo + Texto (Meio) */
 
+main {
+  background-image: url(images/whitebackgroud.png);
+  background-size: cover;
+  width: 100%;
+  max-width: 1920px;
+  height: 732px;
+}
+
+.segunda-parte {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 120px;
+  height: 100%;
+}
+
+.video {
+  border: solid #1B1F23 7px;
+  height: 463px;
+  width: 814px;
+}
+
+.texto-segundaParte {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  justify-content: center;
+  margin-left: 120px;
+  align-items: center;
+}
+
+.texto-segundaParte h1 {
+  font-size: 60px;
+  font-weight: 600;
+  width: 721px;
+  height: auto;
+  text-align: center;
+}
+
+#mensagem-meio {
+  font-size: 36px;
+  width: 721px;
+  height: auto;
+  text-align: center;
+}
+
+#mensagem-final {
+  font-size: 24px;
+  width: 721px;
+  height: auto;
+  text-align: center;
+}
+
+#botao-segundaParte {
+  font-size: 20px;
+  height: 45px;
+  width: 130px;
+  border-radius: 60px;
+  cursor: pointer;
+  border: none;
+}
+
+#botao-segundaParte:hover{
+  background-color: #F97316;
+  transition: 0.2s ease;
+  color: #fff;
+}
+
+/* Footer + Parte Final*/
+
+footer {
+  background-image: url(images/dust.png);
+  background-size: cover;
+  width: 100%;
+  max-width: 1920px;
+  height: 1080px;
+  padding-top: 211px;
+}
+
+.caixa-container {
+  display: flex;
+  justify-content: center;
+  gap: 192px;
+}
+
+.caixa-container img{
+  width: 130px;
+  height: 130px;
+}
+
+.caixa {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(27, 31, 35, 0.82);
+  width: 401px;
+  height: 550px;
+  align-items: center;
+  border-radius: 50px;
+}
+
+.caixa img {
+  margin-top: 60px;
+}
+
+#titulo-caixa {
+  font-size: 30px;
+  font-weight: 500;
+  width: 307px;
+  height: 148px;
+  text-align: center;
+  padding-top: 40px;
+}
+
+#texto-caixa {
+  font-size: 22px;
+  width: 307px;
+  height: auto;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Footer real */
+
+.footer1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.rede-social {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 62px;
+  width: 62px;
+  border-radius: 100%;
+}
+
+.footer1 ul {
+  list-style: none; 
+  display: flex;
+  gap: 29px;
+}
+
+.footer1 a {  
+  text-decoration: none; 
+  color: #A4A4A4;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.social {
+  display: flex;
+  gap: 33px;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.social img {
+  margin-top: 3px;
+}
+
+.redirect-social {
+  display: flex;
+  gap: 33px;
+  justify-content: center;
+  margin: 20px 0px 15px 0px;
+}
+
+.footer-container {
+  background-color: rgba(16, 17, 18, 0.85);
+}
+
+.footer-container2 {
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.77);
+  height: 57px;
+}
+
+.footer-total {
+  margin-top: 128px;
+}
