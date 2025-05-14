@@ -1,0 +1,80 @@
+/* Importando a fonte (SYNE) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Syne:wght@400..800&display=swap');
+                
+* {
+  font-family: "SYNE", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Reset e fonte */
+* {
+  /* Margin e Padding tiram as "bordas" que começam por padrão */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* O tamanho da div é exatamente o que eu defino Ex: 100x100*/
+}
+body, html {
+  background-color: #111;
+  color: #fff;
+  scroll-behavior: smooth; /* desce a tela de maneira "tranquila" */
+  overflow-x: hidden;
+}
+
+.container {
+    background: url(images/login_background.png);
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;  
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.container-login {
+    background-color: rgba(33, 36, 40, 0.88);
+    width: 1296px;
+    height: 814px;
+    border-radius: 20px;
+}
+
+.parte-branca {
+    background-color: #fff;
+    width: 510px;
+    height: 814px;
+    border-radius: 20px;
+}
+
+.parte-branca h1 {
+    color: #1B1F23;
+    width: auto;
+    height: auto;
+    font-size: 70px;
+    margin-left: 75px;
+    padding-top: 151px;
+} 
+
+.campo-insert img {
+    width: 29px;
+    height: 29px;
+}
+
+.campo-insert {
+    display: flex;
+    flex-direction: row;
+    font-size: 24px;
+    color: #1B1F23;
+    border: solid red 1px;
+    width: 361px;
+    height: 55px;
+    border-radius: 40px;
+}
+
+.icone {
+    padding: 13px 0px 13px 17px;
+}
+
+.texto {
+    padding: 13px 0px 13px 15px;
+}
