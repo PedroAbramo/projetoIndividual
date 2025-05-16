@@ -49,8 +49,12 @@ Tudo isso é feito através de um **formulário com 15 perguntas de múltipla es
 1. Clone este repositório:
    
    git clone https://github.com/PedroAbramo/projetoIndividual.git
+
+2. Abra o GitBash no terminal do VS Code e utilize o comando `npm install` para instalar os módulos da API
    
-2. Abra o `index.html` no seu navegador preferido!
+3. Através do mesmo terminal, utilize o comando `npm start`
+
+4. Entre no link "http://localhost:3333" que será disponibilizado e aproveite o site!
 
 
 
