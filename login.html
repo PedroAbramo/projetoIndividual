@@ -44,7 +44,9 @@
                                 </div>
 
                             <button class="botao" onclick="entrar()">ENTRAR</button>
-                            <p id="texto-novoAqui">Novo aqui? <a href="cadastro.html" id="redirecionar-cadastro"><span style="color: #F97316">Cadastre-se</span></a></p>
+                                <p id="texto-novoAqui">Novo aqui? 
+                                    <a href="cadastro.html" id="redirecionar-cadastro">Cadastre-se</a>
+                                </p>
 
                             <a href="index.html" id="redicionar-home"><p style="color: #1B1F23">→ Voltar</p></a>
                         </div>
@@ -83,7 +85,7 @@
             return false;
         }
         else {
-            setInterval(sumirMensagem, 5000)
+            
         }
 
         console.log("FORM LOGIN: ", emailVar);
@@ -126,6 +128,8 @@
                     console.error(texto);
                     finalizarAguardar(texto);
                 });
+
+                mensagem_erro.innerHTML = "(Email ou Senha inválido(s))";                
             }
 
         }).catch(function (erro) {
