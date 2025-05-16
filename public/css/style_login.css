@@ -157,6 +157,10 @@ button:hover {
     margin-top: 160px;
 }
 
+.card-card-login {
+  display: flex;
+  flex-direction: row;
+}
 
 
 
