@@ -54,7 +54,7 @@ Tudo isso é feito através de um **formulário com 15 perguntas de múltipla es
    
 3. Através do mesmo terminal, utilize o comando `npm start`
 
-4. Entre no link "http://localhost:3333" que será disponibilizado e aproveite o site!
+4. Entre no link `http://localhost:3333` que será disponibilizado e aproveite o site!
 
 
 
