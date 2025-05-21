@@ -162,6 +162,36 @@ button:hover {
   flex-direction: row;
 }
 
+.texto-lateral {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    max-width: 786px;
+    width: 786px;
+}
+
+.texto-lateral img {
+    height: 174px;
+    width: 174px;
+    margin-top: 62px;
+    margin-bottom: 42px;
+}
+
+#estilo-jogo {
+    font-weight: 600;
+    font-size: 70px;
+    width: 690px;
+    height: 150px;
+}
+
+#responda {
+    width: 658px;
+    height: 163px;
+    font-size: 36px;
+}
+
 
 
 
