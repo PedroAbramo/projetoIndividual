@@ -5,10 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exemplo - Quiz</title>
-    <link rel="stylesheet" href="style_quiz.css">
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 
@@ -61,11 +58,6 @@
                     <input type="radio" id="quartaOpcao" name="option" class="radio" value="alternativaD" />
                     <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
                 </span>
-                <span>
-                    <input type="radio" id="quintaOpcao" name="option" class="radio" value="alternativaE" />
-                    <label for="quintaOpcao" class="option" id="labelOpcaoCinco"></label>
-                </span>
-
             </div>
 
             <div id="botoes" class="flex-colunar padding-8">
@@ -82,189 +74,35 @@
 </html>
 <script>
     const listaDeQuestoes = [
-  {
-    "texto": "Como você prefere iniciar um round?",
-    "tipo": "tatico",
-    "opcoes": {
-      "Entry Fragger": "Indo na frente, enfrentando o inimigo de cara.",
-      "Support": "Indo junto com o time, jogando granadas para ajudar.",
-      "Lurker": "Esperando um pouco para ver o que o time decide fazer.",
-      "IGL": "Comandando e dizendo quem vai para onde.",
-      "AWPer": "Procurando uma posição para fazer eliminações com AWP."
-    }
-  },
-  {
-    "texto": "Qual dessas qualidades mais te descreve?",
-    "tipo": "tatico",
-    "opcoes": {
-      "Entry Fragger": "Corajoso e rápido nas decisões.",
-      "Support": "Cuidadoso e atento ao que os outros precisam.",
-      "AWPer": "Preciso e calculista.",
-      "IGL": "Inteligente e estratégico.",
-      "Clutcher": "Calmo e frio sob pressão."
-    }
-  },
-  {
-    "texto": "Com qual função você se identifica mais?",
-    "tipo": "tatico",
-    "opcoes": {
-      "Entry Fragger": "Abrir espaços para o time.",
-      "Support": "Garantir que o plano do time funcione.",
-      "AWPer": "Derrubar os oponentes de longe.",
-      "Lurker": "Criar jogadas por conta própria.",
-      "IGL": "Pensar o que todos devem fazer."
-    }
-  },
-  {
-    "texto": "Em uma situação de 1v3, o que você faz?",
-    "tipo": "tatico",
-    "opcoes": {
-      "Entry Fragger": "Tento resolver na mira, confio nos meus reflexos.",
-      "Clutcher": "Tento pegar os inimigos separados.",
-      "Support": "Uso granadas para ganhar vantagem antes de atirar.",
-      "Lurker": "Penso nos padrões do adversário e tento surpreender.",
-      "IGL": "Evito confronto direto, tento plantar a bomba ou guardar."
-    }
-  },
-  {
-    "texto": "Se tivesse que treinar apenas uma coisa, o que escolheria?",
-    "tipo": "tatico",
-    "opcoes": {
-      "Entry Fragger": "Reflexos e mira.",
-      "Support": "Utilitários (smokes, flashes).",
-      "AWPer": "Posições de sniper.",
-      "IGL": "Estratégias e táticas.",
-      "Clutcher": "Situações de clutch."
-    }
-  },
-  {
-    "texto": "Como você costuma usar as granadas (smokes, flashes, etc)?",
-    "tipo": "tatico",
-    "opcoes": {
-      "Entry Fragger": "Uso quando necessário, mas foco mais na trocação.",
-      "Support": "Estudo setups e executo com frequência para ajudar o time.",
-      "AWPer": "Uso para segurar ângulos e proteger minha posição.",
-      "Lurker": "Uso para criar distrações e oportunidades sozinho.",
-      "IGL": "Gosto de coordenar o uso das granadas do time."
-    }
-  },
-  {
-    "texto": "Quando o round começa, onde você prefere jogar?",
-    "tipo": "tatico",
-    "opcoes": {
-      "Entry Fragger": "Avançando agressivamente para pegar alguém desprevenido.",
-      "Support": "Perto de onde o time estiver indo para dar cobertura.",
-      "AWPer": "Em posição segura para dar pick com AWP.",
-      "Lurker": "Em locais diferentes, tentando flanquear.",
-      "IGL": "Em um lugar onde eu possa ter visão do que o time e o inimigo estão fazendo."
-    }
-  },
-  {
-    "texto": "Qual sua relação com a comunicação no jogo?",
-    "tipo": "tatico",
-    "opcoes": {
-      "Entry Fragger": "Falo o básico, foco mais em jogar.",
-      "Support": "Sempre aviso quando jogo granadas ou cubro alguém.",
-      "AWPer": "Me comunico quando vejo movimentações e faço picks.",
-      "Lurker": "Aviso quando pego alguém fora de posição.",
-      "IGL": "Falo bastante, tento organizar as jogadas e o posicionamento do time."
-    }
-  },
-  {
-    "texto": "Em partidas, qual dessas tarefas você escolheria?",
-    "tipo": "tatico",
-    "opcoes": {
-      "Entry Fragger": "Ser o primeiro a entrar no bomb.",
-      "Support": "Cuidar das smokes e flashes.",
-      "AWPer": "Cobrir a retaguarda e dar picks de longe.",
-      "Lurker": "Escolher um caminho alternativo e surpreender.",
-      "IGL": "Analisar a economia e sugerir a estratégia do round."
-    }
-  },
-  {
-    "texto": "O que te dá mais satisfação em uma partida?",
-    "tipo": "tatico",
-    "opcoes": {
-      "Entry Fragger": "Conseguir várias kills em rush.",
-      "Support": "Fazer uma boa execução em conjunto.",
-      "AWPer": "Acertar um tiro decisivo com AWP.",
-      "Lurker": "Matar alguém pelas costas ou desestabilizar o inimigo.",
-      "IGL": "Vencer uma rodada com uma tática bem executada."
-    }
-  },
-  {
-    "texto": "O que te motiva a jogar CS com frequência?",
-    "tipo": "personalidade",
-    "opcoes": {
-      "Hardcore": "Evoluir meu desempenho e subir de patente.",
-      "Casual": "Ganhar partidas, mas sem pressão.",
-      "Social": "Estar com os amigos e se divertir.",
-      "Relaxado": "Relaxar e curtir o momento, independente do resultado.",
-      "Aprendiz": "Aprender mais sobre o jogo e testar coisas novas."
-    }
-  },
-  {
-    "texto": "Como você reage após perder uma partida?",
-    "tipo": "personalidade",
-    "opcoes": {
-      "Hardcore": "Analiso o que deu errado e fico incomodado até melhorar.",
-      "Casual": "Fico chateado, mas logo esqueço.",
-      "Social": "Dou risada e já pulo pra próxima.",
-      "Relaxado": "Nem me importo muito, faz parte.",
-      "Aprendiz": "Vejo como aprendizado e tento melhorar."
-    }
-  },
-  {
-    "texto": "Qual sua prioridade ao entrar em uma partida?",
-    "tipo": "personalidade",
-    "opcoes": {
-      "Hardcore": "Jogar com foco total e vencer.",
-      "Casual": "Jogar bem, mas sem pressão.",
-      "Social": "Ter uma boa experiência com o time.",
-      "Relaxado": "Se divertir com jogadas aleatórias.",
-      "Aprendiz": "Experimentar novas funções ou posições."
-    }
-  },
-  {
-    "texto": "Você costuma jogar mais com:",
-    "tipo": "personalidade",
-    "opcoes": {
-      "Hardcore": "Jogadores do mesmo nível, com comunicação séria.",
-      "Casual": "Amigos e conhecidos com nível próximo.",
-      "Social": "Amigos, independentemente de nível.",
-      "Relaxado": "Qualquer pessoa, o importante é brincar.",
-      "Aprendiz": "Pessoas que me ensinam ou que posso aprender observando."
-    }
-  },
-  {
-    "texto": "Como você enxerga sua evolução no jogo?",
-    "tipo": "personalidade",
-    "opcoes": {
-      "Hardcore": "Quero ser o melhor possível, talvez até entrar em competitivo real.",
-      "Casual": "Quero melhorar, mas sem cobranças.",
-      "Social": "Não penso nisso, só quero jogar com os amigos.",
-      "Relaxado": "Evoluir é legal, mas não é meu foco.",
-      "Aprendiz": "Tenho vontade de crescer, mesmo começando devagar."
-    }
-  }
-]
 
-    let perfisTaticos = {
-    "Entry Fragger": 0,
-    "Support": 0,
-    "AWPer": 0,
-    "Lurker": 0,
-    "IGL": 0,
-    "Clutcher": 0,
-}
+        {
+            pergunta: "Qual mês tem 30 dias?",
+            alternativaA: "Janeiro",
+            alternativaB: "Dezembro",
+            alternativaC: "Junho",
+            alternativaD: "Agosto",
+            alternativaCorreta: "alternativaC"
+        },
 
-    let perfisPersonalidade = {
-    "Hardcore": 0,
-    "Casual": 0,
-    "Social": 0,
-    "Relaxado": 0,
-    "Aprendiz": 0,
-}
+        {
+            pergunta: "Quantas horas tem em um dia?",
+            alternativaA: "30 horas",
+            alternativaB: "38 horas",
+            alternativaC: "48 horas",
+            alternativaD: "24 horas",
+            alternativaCorreta: "alternativaD"
+        },
+
+        {
+            pergunta: "Qual destes números é ímpar?",
+            alternativaA: "Dez",
+            alternativaB: "Doze",
+            alternativaC: "Oito",
+            alternativaD: "Onze",
+            alternativaCorreta: "alternativaD"
+        }
+
+    ]
 
     // variáveis globais    
     let numeroDaQuestaoAtual = 0
@@ -295,44 +133,19 @@
         btnTentarNovamente.disabled = true
     }
 
-function preencherHTMLcomQuestaoAtual(index) {
-    habilitarAlternativas(true);
-    const questaoAtual = listaDeQuestoes[index];
-    numeroDaQuestaoAtual = index;
-
-    document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = Number(index) + 1;
-    document.getElementById("spanQuestaoExibida").innerHTML = questaoAtual.texto;
-
-    const perfis = Object.keys(questaoAtual.opcoes);
-    const opcoes = Object.values(questaoAtual.opcoes);
-
-    const labels = [
-        document.getElementById("labelOpcaoUm"),
-        document.getElementById("labelOpcaoDois"),
-        document.getElementById("labelOpcaoTres"),
-        document.getElementById("labelOpcaoQuatro"),
-        document.getElementById("labelOpcaoCinco")
-    ];
-
-    const radios = [
-        document.getElementById("primeiraOpcao"),
-        document.getElementById("segundaOpcao"),
-        document.getElementById("terceiraOpcao"),
-        document.getElementById("quartaOpcao"),
-        document.getElementById("quintaOpcao")
-    ];
-
-    for (let i = 0; i < labels.length; i++) {
-        if (opcoes[i]) {
-            labels[i].innerText = opcoes[i];
-            radios[i].value = perfis[i];
-            radios[i].parentElement.style.display = "block";
-        } else {
-            radios[i].parentElement.style.display = "none";
-        }
+    function preencherHTMLcomQuestaoAtual(index) {
+        habilitarAlternativas(true)
+        const questaoAtual = listaDeQuestoes[index]
+        numeroDaQuestaoAtual = index
+        console.log("questaoAtual")
+        console.log(questaoAtual)
+        document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = Number(index) + 1 // ajustando porque o index começa em 0
+        document.getElementById("spanQuestaoExibida").innerHTML = questaoAtual.pergunta;
+        document.getElementById("labelOpcaoUm").innerHTML = questaoAtual.alternativaA;
+        document.getElementById("labelOpcaoDois").innerHTML = questaoAtual.alternativaB;
+        document.getElementById("labelOpcaoTres").innerHTML = questaoAtual.alternativaC;
+        document.getElementById("labelOpcaoQuatro").innerHTML = questaoAtual.alternativaD;
     }
-}
-
 
     function submeter() {
         const options = document.getElementsByName("option"); // recupera alternativas no html
@@ -364,8 +177,6 @@ function preencherHTMLcomQuestaoAtual(index) {
         segundaOpcao.disabled = opcaoEscolhida
         terceiraOpcao.disabled = opcaoEscolhida
         quartaOpcao.disabled = opcaoEscolhida
-        quintaOpcao.disabled = opcaoEscolhida;
-
 
     }
 
@@ -391,32 +202,41 @@ function preencherHTMLcomQuestaoAtual(index) {
         window.location.reload()
     }
 
-function checarResposta() {
-    const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual];
-    const options = document.getElementsByName("option");
-    let perfilEscolhido = null;
+    function checarResposta() {
+        const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual] // questão atual 
+        const respostaQuestaoAtual = questaoAtual.alternativaCorreta // qual é a resposta correta da questão atual
 
-    for (let option of options) {
-        if (option.checked) {
-            perfilEscolhido = option.value;
-            break;
-        }
+        const options = document.getElementsByName("option"); // recupera alternativas no html
+
+        let alternativaCorreta = null // variável para armazenar a alternativa correta
+
+        options.forEach((option) => {
+            if (option.value === respostaQuestaoAtual) {
+                console.log("alternativaCorreta está no componente: " + alternativaCorreta)
+                alternativaCorreta = option.labels[0].id
+            }
+        })
+
+        // verifica se resposta assinalada é correta
+        options.forEach((option) => {
+            if (option.checked === true && option.value === respostaQuestaoAtual) {
+                document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
+                pontuacaoFinal++
+                certas++
+                document.getElementById("spanCertas").innerHTML = certas
+                numeroDaQuestaoAtual++
+            } else if (option.checked && option.value !== respostaQuestaoAtual) {
+                const wrongLabelId = option.labels[0].id
+
+                document.getElementById(wrongLabelId).classList.add("text-danger-with-bg")
+                document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
+                tentativaIncorreta++
+                erradas++
+                document.getElementById("spanErradas").innerHTML = erradas
+                numeroDaQuestaoAtual++
+            }
+        })
     }
-
-    if (!perfilEscolhido) return;
-
-    if (questaoAtual.tipo === "tatico") {
-        if (perfisTaticos.hasOwnProperty(perfilEscolhido)) {
-            perfisTaticos[perfilEscolhido]++;
-        }
-    } else {
-        if (perfisPersonalidade.hasOwnProperty(perfilEscolhido)) {
-            perfisPersonalidade[perfilEscolhido]++;
-        }
-    }
-
-    numeroDaQuestaoAtual++;
-}
 
     function limparCoresBackgroundOpcoes() {
         const options = document.getElementsByName("option");
@@ -433,57 +253,37 @@ function checarResposta() {
         }
     }
 
-    
     function finalizarJogo() {
-        document.getElementById('msgFinal').innerHTML = "Veja seus perfis abaixo";
-        document.getElementById('spanPontuacaoFinal').innerHTML = "---";
-        document.getElementById('jogo').classList.add("text-new-gray");
-        btnProx.disabled = true;
-        btnSubmeter.disabled = true;
-        btnTentarNovamente.disabled = false;
-        exibirGraficosFinais();
-}
-    
+        let textoParaMensagemFinal = null
+        let classComCoresParaMensagemFinal = null
+        const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
 
-function exibirGraficosFinais() {
-    const div = document.getElementById("pontuacao");
-
-    const canvasTatico = document.createElement("canvas");
-    canvasTatico.id = "graficoTatico";
-    div.appendChild(canvasTatico);
-
-    const canvasPerso = document.createElement("canvas");
-    canvasPerso.id = "graficoPersonalidade";
-    div.appendChild(canvasPerso);
-
-    gerarRadar(canvasTatico, "Perfil Tático", perfisTaticos);
-    gerarRadar(canvasPerso, "Perfil de Personalidade", perfisPersonalidade);
-}
-
-function gerarRadar(ctx, titulo, dados) {
-    new Chart(ctx, {
-        type: 'radar',
-        data: {
-            labels: Object.keys(dados),
-            datasets: [{
-                label: titulo,
-                data: Object.values(dados),
-                fill: true,
-                backgroundColor: "rgba(54, 162, 235, 0.2)",
-                borderColor: "rgb(54, 162, 235)",
-                pointBackgroundColor: "rgb(54, 162, 235)"
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                r: {
-                    beginAtZero: true,
-                    suggestedMax: 5
-                }
-            }
+        if (porcentagemFinalDeAcertos <= 0.3) {
+            textoParaMensagemFinal = "Parece que você não estudou..."
+            classComCoresParaMensagemFinal = "text-danger-with-bg"
         }
-    });
-}
+        else if (porcentagemFinalDeAcertos > 0.3 && porcentagemFinalDeAcertos < 0.9) {
+            textoParaMensagemFinal = "Pode melhorar na próxima, hein!"
+            classComCoresParaMensagemFinal = "text-warning-with-bg"
+        }
+        else if (porcentagemFinalDeAcertos >= 0.9) {
+            textoParaMensagemFinal = "Uau, parabéns!"
+            classComCoresParaMensagemFinal = "text-success-with-bg"
+        }
 
+        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos)*100) + "% das questões."
+
+
+        document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
+        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal) 
+        document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
+
+        document.getElementById('jogo').classList.add("text-new-gray") 
+
+        btnProx.disabled = true
+        btnSubmeter.disabled = true
+        // btnConcluir.disabled = true
+        btnTentarNovamente.disabled = false
+
+    }
 </script>
