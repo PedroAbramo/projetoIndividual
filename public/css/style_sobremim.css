@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Syne:wght@400..800&display=swap');
+                
+* {
+  font-family: "SYNE", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  background: url(images/fundoNeutro.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #fff;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* HEADER */
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+#logoCS {
+  margin-left: 120px;
+  width: 50px;
+  height: 65px;
+}
+
+nav {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-bottom: solid rgba(27, 31, 35, 0.7) 10px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 70px;
+  margin-right: 150px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+  color: #F97316;
+  transition: 0.2s ease;
+}
+
+main {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-geral {
+  display: flex;
+  flex-direction: row;
+  margin-top: 60px;
+}
+
+.container-sobremim {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 171px;
+}
+
+.sobre-mim h1 {
+  font-weight: 600;
+  font-size: 70px;
+}
+
+.sobre-mim p {
+  font-weight: 400;
+  font-size: 32px;
+  height: 494px;
+  width: 1079px;
+}
+
+.container-eu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 40px;
+}
+
+.texto-eu {
+  background-color: white;
+  color: #1B1F23;
+  height: 680px;
+  width: 452px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.texto-eu h2 {
+  font-weight: 700;
+  font-size: 40px;
+}
+
+
+
