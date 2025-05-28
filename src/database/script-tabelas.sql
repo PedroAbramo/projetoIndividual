@@ -43,3 +43,16 @@ CREATE TABLE resultado_quiz (
     FOREIGN KEY (fk_nivelTatico) REFERENCES nivel_tatico(idTatico),
     FOREIGN KEY (fk_nivelPersonalidade) REFERENCES nivel_personalidade(idPersonalidade)
 );
+
+-- usuario teste
+insert into usuario (nome, email, senha)
+values
+('Pedro', 'pedro@gmail.com', '123');
+
+select * from usuario;
+
+select * from nivel_personalidade;
+
+select * from nivel_tatico;
+
+select * from resultado_quiz;
