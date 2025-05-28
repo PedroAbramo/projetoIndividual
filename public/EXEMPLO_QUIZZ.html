@@ -69,19 +69,19 @@
 <script>
 
     let perfisTaticos = {
-    "Entry_Fragger": 0,
-    "Support": 0,
-    "Lurker": 0,
-    "AWPer": 0,
-    "IGL": 0
+    "entry_fragger": 0,
+    "support": 0,
+    "lurker": 0,
+    "awper": 0,
+    "igl": 0
     }
 
     let perfisPersonalidade = {
-    "Hardcore": 0,
-    "Casual": 0,
-    "Social": 0,
-    "Relaxado": 0,
-    "Aprendiz": 0,
+    "hardcore": 0,
+    "casual": 0,
+    "social": 0,
+    "relaxado": 0,
+    "aprendiz": 0,
     }
 
     const listaDeQuestoes = [
@@ -94,11 +94,11 @@
         alternativaD: "Comandando e dizendo quem vai para onde.", // IGL
         alternativaE: "Procurando uma posição para fazer eliminações com AWP.", // AWPer
         perfisPorAlternativa: {
-            alternativaA: "Entry_Fragger",
-            alternativaB: "Support",
-            alternativaC: "Lurker",
-            alternativaD: "IGL",
-            alternativaE: "AWPer"
+            alternativaA: "entry_fragger",
+            alternativaB: "support",
+            alternativaC: "lurker",
+            alternativaD: "igl",
+            alternativaE: "awper"
         }
     },
     {
@@ -110,11 +110,11 @@
         alternativaD: "Inteligente e estratégico.", // IGL
         alternativaE: "Calmo e frio sob pressão.", // Clutcher
         perfisPorAlternativa: {
-            alternativaA: "Entry_Fragger",
-            alternativaB: "Support",
-            alternativaC: "AWPer",
-            alternativaD: "IGL",
-            alternativaE: "Clutcher"
+            alternativaA: "entry_fragger",
+            alternativaB: "support",
+            alternativaC: "lurker",
+            alternativaD: "igl",
+            alternativaE: "awper"
         }
     },
     {
@@ -126,11 +126,11 @@
         alternativaD: "Criar jogadas por conta própria.", // Lurker
         alternativaE: "Pensar o que todos devem fazer.", // IGL
         perfisPorAlternativa: {
-            alternativaA: "Entry_Fragger",
-            alternativaB: "Support",
-            alternativaC: "AWPer",
-            alternativaD: "Lurker",
-            alternativaE: "IGL"
+            alternativaA: "entry_fragger",
+            alternativaB: "support",
+            alternativaC: "awper",
+            alternativaD: "lurker",
+            alternativaE: "igl"
         }
     },
     {
@@ -142,11 +142,11 @@
         alternativaD: "Penso nos padrões do adversário e tento surpreender.", // Lurker
         alternativaE: "Evito confronto direto, tento plantar a bomba ou guardar.", // IGL
         perfisPorAlternativa: {
-            alternativaA: "Entry_Fragger",
-            alternativaB: "Clutcher",
-            alternativaC: "Support",
-            alternativaD: "Lurker",
-            alternativaE: "IGL"
+            alternativaA: "entry_fragger",
+            alternativaB: "support",
+            alternativaC: "awper",
+            alternativaD: "lurker",
+            alternativaE: "igl"
         }
     },
     {
@@ -158,11 +158,11 @@
         alternativaD: "Estratégias e táticas.", // IGL
         alternativaE: "Situações de clutch.", // Clutcher
         perfisPorAlternativa: {
-            alternativaA: "Entry_Fragger",
-            alternativaB: "Support",
-            alternativaC: "AWPer",
-            alternativaD: "IGL",
-            alternativaE: "Clutcher"
+            alternativaA: "entry_fragger",
+            alternativaB: "support",
+            alternativaC: "awper",
+            alternativaD: "lurker",
+            alternativaE: "igl"
         }
     },
     {
@@ -174,11 +174,11 @@
         alternativaD: "Uso para criar distrações e oportunidades sozinho.", // Lurker
         alternativaE: "Gosto de coordenar o uso das granadas do time.", // IGL
         perfisPorAlternativa: {
-            alternativaA: "Entry_Fragger",
-            alternativaB: "Support",
-            alternativaC: "AWPer",
-            alternativaD: "Lurker",
-            alternativaE: "IGL"
+            alternativaA: "entry_fragger",
+            alternativaB: "support",
+            alternativaC: "awper",
+            alternativaD: "lurker",
+            alternativaE: "igl"
         }
     },
     {
@@ -190,11 +190,11 @@
         alternativaD: "Em locais diferentes, tentando flanquear.", // Lurker
         alternativaE: "Em um lugar onde eu possa ter visão do que o time e o inimigo estão fazendo.", // IGL
         perfisPorAlternativa: {
-            alternativaA: "Entry_Fragger",
-            alternativaB: "Support",
-            alternativaC: "AWPer",
-            alternativaD: "Lurker",
-            alternativaE: "IGL"
+            aalternativaA: "entry_fragger",
+            alternativaB: "support",
+            alternativaC: "awper",
+            alternativaD: "lurker",
+            alternativaE: "igl"
         }
     },
     {
@@ -206,11 +206,11 @@
         alternativaD: "Aviso quando pego alguém fora de posição.", // Lurker
         alternativaE: "Falo bastante, tento organizar as jogadas e o posicionamento do time.", // IGL
         perfisPorAlternativa: {
-            alternativaA: "Entry_Fragger",
-            alternativaB: "Support",
-            alternativaC: "AWPer",
-            alternativaD: "Lurker",
-            alternativaE: "IGL"
+            alternativaA: "entry_fragger",
+            alternativaB: "support",
+            alternativaC: "awper",
+            alternativaD: "lurker",
+            alternativaE: "igl"
         }
     },
     {
@@ -222,11 +222,11 @@
         alternativaD: "Escolher um caminho alternativo e surpreender.", // Lurker
         alternativaE: "Analisar a economia e sugerir a estratégia do round.", // IGL
         perfisPorAlternativa: {
-            alternativaA: "Entry_Fragger",
-            alternativaB: "Support",
-            alternativaC: "AWPer",
-            alternativaD: "Lurker",
-            alternativaE: "IGL"
+            alternativaA: "entry_fragger",
+            alternativaB: "support",
+            alternativaC: "awper",
+            alternativaD: "lurker",
+            alternativaE: "igl"
         }
     },
     {
@@ -238,11 +238,11 @@
         alternativaD: "Matar alguém pelas costas ou desestabilizar o inimigo.", // Lurker
         alternativaE: "Vencer uma rodada com uma tática bem executada.", // IGL
         perfisPorAlternativa: {
-            alternativaA: "Entry_Fragger",
-            alternativaB: "Support",
-            alternativaC: "AWPer",
-            alternativaD: "Lurker",
-            alternativaE: "IGL"
+            alternativaA: "entry_fragger",
+            alternativaB: "support",
+            alternativaC: "awper",
+            alternativaD: "lurker",
+            alternativaE: "igl"
         }
     },
     {
@@ -254,11 +254,11 @@
         alternativaD: "Relaxar e curtir o momento, independente do resultado.", // Relaxado
         alternativaE: "Aprender mais sobre o jogo e testar coisas novas.", // Aprendiz
         perfisPorAlternativa: {
-            alternativaA: "Hardcore",
-            alternativaB: "Casual",
-            alternativaC: "Social",
-            alternativaD: "Relaxado",
-            alternativaE: "Aprendiz"
+            alternativaA: "hardcore",
+            alternativaB: "casual",
+            alternativaC: "social",
+            alternativaD: "relaxado",
+            alternativaE: "aprendiz"
         }
     },
     {
@@ -270,11 +270,11 @@
         alternativaD: "Nem me importo muito, faz parte.", // Relaxado
         alternativaE: "Vejo como aprendizado e tento melhorar.", // Aprendiz
         perfisPorAlternativa: {
-            alternativaA: "Hardcore",
-            alternativaB: "Casual",
-            alternativaC: "Social",
-            alternativaD: "Relaxado",
-            alternativaE: "Aprendiz"
+            alternativaA: "hardcore",
+            alternativaB: "casual",
+            alternativaC: "social",
+            alternativaD: "relaxado",
+            alternativaE: "aprendiz"
         }
     },
     {
@@ -286,11 +286,11 @@
         alternativaD: "Se divertir com jogadas aleatórias.", // Relaxado
         alternativaE: "Experimentar novas funções ou posições.", // Aprendiz
         perfisPorAlternativa: {
-            alternativaA: "Hardcore",
-            alternativaB: "Casual",
-            alternativaC: "Social",
-            alternativaD: "Relaxado",
-            alternativaE: "Aprendiz"
+            alternativaA: "hardcore",
+            alternativaB: "casual",
+            alternativaC: "social",
+            alternativaD: "relaxado",
+            alternativaE: "aprendiz"
         }
     },
     {
@@ -302,11 +302,11 @@
         alternativaD: "Qualquer pessoa, o importante é brincar.", // Relaxado
         alternativaE: "Pessoas que me ensinam ou que posso aprender observando.", // Aprendiz
         perfisPorAlternativa: {
-            alternativaA: "Hardcore",
-            alternativaB: "Casual",
-            alternativaC: "Social",
-            alternativaD: "Relaxado",
-            alternativaE: "Aprendiz"
+            alternativaA: "hardcore",
+            alternativaB: "casual",
+            alternativaC: "social",
+            alternativaD: "relaxado",
+            alternativaE: "aprendiz"
         }
     },
     {
@@ -318,11 +318,11 @@
         alternativaD: "Evoluir é legal, mas não é meu foco.", // Relaxado
         alternativaE: "Tenho vontade de crescer, mesmo começando devagar.", // Aprendiz
         perfisPorAlternativa: {
-            alternativaA: "Hardcore",
-            alternativaB: "Casual",
-            alternativaC: "Social",
-            alternativaD: "Relaxado",
-            alternativaE: "Aprendiz"
+            alternativaA: "hardcore",
+            alternativaB: "casual",
+            alternativaC: "social",
+            alternativaD: "relaxado",
+            alternativaE: "aprendiz"
         }
     },
 ]
@@ -387,6 +387,12 @@ function submeter() {
 }
 
 function mostrarResultado() {
+    let idUsuario = sessionStorage.getItem("ID_USUARIO");
+    if (!idUsuario) {
+        alert("Você precisa estar logado para salvar o resultado!");
+        return;
+    }
+
     document.getElementById('jogo').style.display = "none";
 
     const perfilTatico = maisPontuado(perfisTaticos);
@@ -397,15 +403,29 @@ function mostrarResultado() {
         Perfil de Personalidade: <strong>${perfilPersonalidade}</strong>
     `;
     document.getElementById('spanPontuacaoFinal').textContent = "Finalizado";
-    document.getElementById('btnTentarNovamente').disabled = false;
+    
+
+    fetch("/quiz/salvar", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+    idUsuario: Number(idUsuario), // use a variável, não sessionStorage.ID_USUARIO
+    tatico: perfisTaticos,
+    personalidade: perfisPersonalidade,
+    perfilTatico: perfilTatico,
+    perfilPersonalidade: perfilPersonalidade
+})
+})
+.then(res => res.json())
+.then(data => {
+    if (data.ok) {
+        alert("Resultado salvo com sucesso!");
+    }
+});
 }
 
 function maisPontuado(obj) {
     return Object.entries(obj).reduce((a, b) => b[1] > a[1] ? b : a)[0];
-}
-
-function tentarNovamente() {
-    window.location.reload();
 }
 
 </script>
