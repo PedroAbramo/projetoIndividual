@@ -20,7 +20,6 @@ body, html {
   scroll-behavior: smooth;
 }
 
-/* HEADER */
 header {
   width: 100%;
   display: flex;
@@ -29,7 +28,7 @@ header {
 }
 
 #logoCS {
-  margin-left: 120px;
+  margin-left: 40px;
   width: 50px;
   height: 65px;
 }
@@ -47,7 +46,7 @@ nav ul {
   list-style: none;
   display: flex;
   gap: 70px;
-  margin-right: 150px;
+  margin-right: 120px;
 }
 
 nav a {
@@ -55,17 +54,17 @@ nav a {
   color: white;
   font-weight: 500;
   font-size: 20px;
+  letter-spacing: 1px;
+  padding-bottom: 4px;
 }
 
 nav a:hover {
   text-decoration: underline;
   color: #F97316;
-  transition: 0.2s ease;
 }
 
 main {
-  width: 100%;
-  min-height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,50 +74,201 @@ main {
 .container-geral {
   display: flex;
   flex-direction: row;
-  margin-top: 60px;
+  margin-top: 110px;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .container-sobremim {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-left: 171px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-left: 60px;
 }
 
 .sobre-mim h1 {
-  font-weight: 600;
-  font-size: 70px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 64px;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
 }
 
 .sobre-mim p {
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 32px;
-  height: 494px;
-  width: 1079px;
+  font-size: 22px;
+  line-height: 1.5;
+  width: 700px;
+  color: #fff;
 }
 
 .container-eu {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin-left: 40px;
+  justify-content: flex-start;
+  margin-left: 200px;
+}
+
+#pedro_imagem {
+  width: 250px;
+  height: 250px;
+  border-radius: 100%;
+  border: 8px solid #fff;
+  background: #e5e5e5;
+  position: relative;
+  top: -50px;
+  z-index: 2; /*Coloca a imagem na frente da parte branca*/
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15);
 }
 
 .texto-eu {
-  background-color: white;
+  background-color: #fff;
   color: #1B1F23;
-  height: 680px;
-  width: 452px;
-  border-radius: 10px;
+  width: 370px;
+  height: 450px;
+  border-radius: 16px;
   text-align: center;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 90px;
+  position: relative;
+  top: -110px;
 }
 
 .texto-eu h2 {
   font-weight: 700;
-  font-size: 40px;
+  font-size: 34px;
+  margin-bottom: 30px;
 }
+
+.texto-eu p {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 24px;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+footer {
+  background-image: url(images/dust.png);
+  background-size: cover;
+  width: 100%;
+  max-width: 1920px;
+  height: 1080px;
+  padding-top: 211px;
+}
+
+.caixa-container {
+  display: flex;
+  justify-content: center;
+  gap: 192px;
+}
+
+.caixa-container img{
+  width: 130px;
+  height: 130px;
+}
+
+.caixa {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(27, 31, 35, 0.82);
+  width: 401px;
+  height: 550px;
+  align-items: center;
+  border-radius: 50px;
+}
+
+.caixa img {
+  margin-top: 60px;
+}
+
+#titulo-caixa {
+  font-size: 30px;
+  font-weight: 500;
+  width: 307px;
+  height: 148px;
+  text-align: center;
+  padding-top: 40px;
+}
+
+#texto-caixa {
+  font-size: 22px;
+  width: 307px;
+  height: auto;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Footer real */
+
+.footer1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.rede-social {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 62px;
+  width: 62px;
+  border-radius: 100%;
+}
+
+.footer1 ul {
+  list-style: none; 
+  display: flex;
+  gap: 29px;
+}
+
+.footer1 a {  
+  text-decoration: none; 
+  color: #A4A4A4;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.social {
+  display: flex;
+  gap: 33px;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.social img {
+  margin-top: 3px;
+}
+
+.redirect-social {
+  display: flex;
+  gap: 33px;
+  justify-content: center;
+  margin: 20px 0px 15px 0px;
+}
+
+.footer-container {
+  background-color: rgba(16, 17, 18, 0.85);
+}
+
+.footer-container2 {
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.77);
+  height: 57px;
+}
+
+
+
+
 
 
 
