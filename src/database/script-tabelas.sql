@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS csprofiler;
+-- DROP DATABASE IF EXISTS csprofiler;
 CREATE DATABASE IF NOT EXISTS csprofiler;
 USE csprofiler;
 
@@ -6,7 +6,8 @@ CREATE TABLE usuario (
     idUsuario INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(45) NOT NULL,
     email VARCHAR(60) NOT NULL UNIQUE,
-    senha VARCHAR(50) NOT NULL
+    senha VARCHAR(50) NOT NULL,
+    data_criacao DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE nivel_tatico (

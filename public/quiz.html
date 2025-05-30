@@ -5,34 +5,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exemplo - Quiz</title>
-    <link rel="stylesheet" href="style_quiz.css">
+    <link rel="stylesheet" href="css/style_quiz.css">
 </head>
 
 
 <body onload="onloadEsconder()">
+    <header>
+    <nav>
+      <a href="index.html">
+      <img src="css/images/logo.png" alt="Logo CS" id="logoCS">
+      </a>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="MUDAR">PERFIS POSSÍVEIS</a></li>
+        <li><a href="MUDAR">DASHBOARD</a></li>
+      </ul>
+    </nav>
+  </header>
+
     <div id="pontuacaoEJogo">
         <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
 
         <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
             
             <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
-                <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
-                    <span id="spanPontuacaoFinal">***</span>
+                <span id="pontuacaoFinal" class="width-fit-content">
+                    <span id="spanPontuacaoFinal"></span>
                 </span>
-                <span id="msgFinal" class="width-fit-content">***</span>
+                <span id="msgFinal" class="width-fit-content"></span>
             </div>
         </div>
 
         <div id="jogo" class="width-fit-content flex-colunar border-secondary">
 
-            <div id="infoQuestao" class="padding-8">
+            
+
+            <div id="perguntaDaQuestaoAtual" class="padding-8">
+                <div id="infoQuestao" class="padding-8">
                 <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span>
                     questões.</span>
             </div>
-
-            <div id="perguntaDaQuestaoAtual" class="padding-8">
                 <span id="spanQuestaoExibida" class="text-bold"></span>
             </div>
+
+            
 
             <div id="opcoes" class="flex-colunar padding-8">
                 <span>
