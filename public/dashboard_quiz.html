@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Quiz</title>
+</head>
+<body>
+    <h1>Dashboard Quiz</h1>
+    <div>
+        <h2>Usuários cadastrados: <span id="totalUsuarios">...</span></h2>
+    </div>
+    <div>
+        <canvas id="usuariosPorDiaChart" width="600" height="300"></canvas>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Total de usuários
+        fetch("/usuarios/contar")
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById("totalUsuarios").textContent = data[0].total;
+            })
+            
+
+        // Gráfico de usuários por dia
+        fetch("/usuarios/usuarios-por-dia")
+            .then(res => res.json())
+            .then(data => {
+                const labels = data.map(item => {
+                    // Se vier como string ISO, pega só a parte da data
+                    if (typeof item.dia === "string") {
+                        // Recebe valores como: "2024-06-07T15:30:00Z" e a partir do 10º caractere corta para pegar só a data
+                        // Exemplo: "2024-06-07T15:30:00Z" -> "2024-06-07"
+                        return item.dia.slice(0, 10);
+                    }
+                    return item.dia;
+                });
+
+                const valores = data.map(item => item.total);
+
+                new Chart(document.getElementById('usuariosPorDiaChart'), {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Usuários cadastrados por dia',
+                            data: valores,
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            fill: true,
+                            tension: 0.2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { display: true }
+                        },
+                        scales: {
+                            x: { title: { display: true, text: 'Dia' } },
+                            y: { title: { display: true, text: 'Usuários' }, beginAtZero: true }
+                        }
+                    }
+                });
+            });
+    </script>
+</body>
+</html>

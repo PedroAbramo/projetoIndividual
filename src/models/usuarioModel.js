@@ -21,8 +21,25 @@ function cadastrar(nome, email, senha) {
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+// Função para contar o número de usuários cadastrados
+function contarUsuarios() {
+    var instrucaoSql = `SELECT COUNT(*) AS total FROM usuario;`;
+    return database.executar(instrucaoSql);
+}
+// Função para obter o número de usuários cadastrados por dia
+function usuariosPorDia() {
+    var instrucaoSql = `
+        SELECT DATE(data_criacao) AS dia, COUNT(*) AS total
+        FROM usuario
+        GROUP BY dia
+        ORDER BY dia;
+    `;
+    return database.executar(instrucaoSql);
+}
 
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    contarUsuarios,
+    usuariosPorDia
 };

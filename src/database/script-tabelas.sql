@@ -48,7 +48,7 @@ CREATE TABLE resultado_quiz (
 -- usuario teste
 insert into usuario (nome, email, senha)
 values
-('Pedro', 'pedro@gmail.com', '123');
+('Pedro', 'pedro@gmail.com', '123'); 
 
 select * from usuario;
 
@@ -57,3 +57,6 @@ select * from nivel_personalidade;
 select * from nivel_tatico;
 
 select * from resultado_quiz;
+
+
+
