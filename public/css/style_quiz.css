@@ -194,5 +194,18 @@ nav a:hover {
   color: #fff;
 }
 
+#nome-usuario {
+  margin-right: auto;
+  font-size: 20px;
+  width: auto;
+  height: auto;
+}
+
+#usuario {
+  color: #F97316;
+  font-weight: 700;
+
+}
+
 
 

@@ -18,6 +18,7 @@
       <a href="index.html">
       <img src="css/images/logo.png" alt="Logo CS" id="logoCS">
       </a>
+      <p id="nome-usuario">Olá, <span id="usuario">MUDAR</span></p>
       <ul>
         <li><a href="index.html">HOME</a></li>
         <li><a href="MUDAR">PERFIS POSSÍVEIS</a></li>
@@ -358,6 +359,10 @@
 let numeroAtual = 0;
 
 function onloadEsconder() {
+    // Busca o nome do usuário do sessionStorage para exibir na página
+    const nomeUsuario = sessionStorage.getItem("NOME_USUARIO");
+    document.getElementById("usuario").textContent = nomeUsuario;
+
     document.getElementById('pontuacao').style.display = "none";
     document.getElementById('jogo').style.display = "none";
 }
