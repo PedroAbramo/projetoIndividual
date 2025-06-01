@@ -27,10 +27,10 @@
             .then(res => res.json())
             .then(data => {
                 const labels = data.map(item => {
-                    // Se vier como string ISO, pega só a parte da data
+                    // Se vier como string, pega só a parte da data
                     if (typeof item.dia === "string") {
-                        // Recebe valores como: "2024-06-07T15:30:00Z" e a partir do 10º caractere corta para pegar só a data
-                        // Exemplo: "2024-06-07T15:30:00Z" -> "2024-06-07"
+                        // Recebe valores como: "2025-05-31T15:30:00Z" e a partir do 10º caractere corta para pegar só a data
+                        // "2025-05-31T15:30:00Z" -> "2025-05-31"
                         return item.dia.slice(0, 10);
                     }
                     return item.dia;

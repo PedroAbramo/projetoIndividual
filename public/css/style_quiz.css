@@ -61,10 +61,9 @@ nav a:hover {
   color: #F97316;
 }
 /*Fim do footer*/
+
 /* Container principal do quiz */
 #pontuacaoEJogo {
-  width: 100vw;
-  min-height: calc(100vh - 100px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,16 +75,13 @@ nav a:hover {
   background: none;
   box-shadow: none;
   border: none;
-  width: 100vw;
-  display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
+  gap: 20px;
 }
 
 #infoQuestao {
   text-align: center;
-  font-family: 'Inter', sans-serif;
   font-size: 18px;
   color:#1B1F23;
   margin-bottom: 12px;
@@ -102,10 +98,8 @@ nav a:hover {
   text-align: center;
 }
 #spanQuestaoExibida {
-  font-family: 'Syne', sans-serif;
   font-size: 32px;
   font-weight: 700;
-  display: block;
   margin-top: 8px;
 }
 
@@ -116,21 +110,17 @@ nav a:hover {
   gap: 32px;
   margin-bottom: 24px;
 }
-#opcoes span {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 40px;
-}
+
 #opcoes label.option {
   background: #fff;
   color: #1B1F23;
   border-radius: 32px;
   font-size: 20px;
-  font-family: 'Inter', sans-serif;
   font-weight: 400;
   padding: 20px 32px;
+  width: 600px;
   min-width: 500px;
+  min-height: 85px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.15);
   margin: 12px 0;
   cursor: pointer;
@@ -139,24 +129,35 @@ nav a:hover {
   display: flex;
   align-items: center;
 }
+
 #opcoes input[type="radio"] {
   display: none;
 }
+
+/* Quando a opção for marcada */
 #opcoes input[type="radio"]:checked + label.option {
   background: #F97316;
   color: #fff;
   font-weight: 700;
 }
 
-#botoes {
+.primeira-linha {
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  margin-top: 24px;
+  gap: 80px;
 }
+
+.segunda-linha {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 80px;
+}
+
 #btnSubmeter {
   background: #181A1B;
   color: #fff;
-  font-family: 'Syne', sans-serif;
   font-size: 22px;
   font-weight: 500;
   border: none;
@@ -164,7 +165,7 @@ nav a:hover {
   padding: 18px 48px;
   cursor: pointer;
   box-shadow: 0 4px 16px rgba(0,0,0,0.10);
-  transition: background 0.2s, color 0.2s;
+  transition: 0.2s ease
 }
 #btnSubmeter:hover {
   background: #F97316;
