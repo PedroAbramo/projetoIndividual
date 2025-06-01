@@ -63,6 +63,28 @@ nav a:hover {
 /*Fim do footer*/
 
 /* Container principal do quiz */
+#btnIniciarQuiz {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 600px;
+  font-size: 50px;
+  border: none;
+  background-color: #ffffff;  
+  color: #181A1B;
+  border-radius: 20px;
+  margin-top: 300px;
+  box-shadow: 0 10px 16px rgba(0,0,0,0.25);
+}
+
+#btnIniciarQuiz:hover {
+  background-color: #F97316;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
 #pontuacaoEJogo {
   display: flex;
   flex-direction: column;
@@ -91,7 +113,7 @@ nav a:hover {
   background: #fff;
   color: #1B1F23;
   border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 16px rgba(0,0,0,0.25);
   padding: 32px 0 24px 0;
   width: 500px;
   margin: 0 auto 32px auto;
@@ -121,7 +143,7 @@ nav a:hover {
   width: 600px;
   min-width: 500px;
   min-height: 85px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 16px rgba(0,0,0,0.25);
   margin: 12px 0;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
