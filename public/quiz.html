@@ -36,7 +36,12 @@
                 <span id="pontuacaoFinal" class="width-fit-content">
                     <span id="spanPontuacaoFinal"></span>
                 </span>
+
+
                 <span id="msgFinal" class="width-fit-content"></span>
+                <div class="frase"></div>
+
+
             </div>
         </div>
 
@@ -376,14 +381,14 @@ function iniciarQuiz() {
 }
 
 function mostrarQuestao(indice) {
-    const q = listaDeQuestoes[indice];
+    const questaoAtual = listaDeQuestoes[indice];
     document.getElementById("spanNumeroDaQuestaoAtual").textContent = indice + 1;
-    document.getElementById("spanQuestaoExibida").textContent = q.pergunta;
-    document.getElementById("labelOpcaoUm").textContent = q.alternativaA;
-    document.getElementById("labelOpcaoDois").textContent = q.alternativaB;
-    document.getElementById("labelOpcaoTres").textContent = q.alternativaC;
-    document.getElementById("labelOpcaoQuatro").textContent = q.alternativaD;
-    document.getElementById("labelOpcaoCinco").textContent = q.alternativaE;
+    document.getElementById("spanQuestaoExibida").textContent = questaoAtual.pergunta;
+    document.getElementById("labelOpcaoUm").textContent = questaoAtual.alternativaA;
+    document.getElementById("labelOpcaoDois").textContent = questaoAtual.alternativaB;
+    document.getElementById("labelOpcaoTres").textContent = questaoAtual.alternativaC;
+    document.getElementById("labelOpcaoQuatro").textContent = questaoAtual.alternativaD;
+    document.getElementById("labelOpcaoCinco").textContent = questaoAtual.alternativaE;
 
     desmarcarRadioButtons();
 }
@@ -394,15 +399,26 @@ function desmarcarRadioButtons() {
 }
 
 function submeter() {
-    const selecionado = Array.from(document.getElementsByName("option")).find(r => r.checked);
-    if (!selecionado) {
-        alert("Escolha uma opção antes de continuar.");
-        return;
-    }
+    let selecionado = null;
+    let radios = document.getElementsByName("option");
+    console.log(radios);
+
+    // Verificar se algum radio button está selecionado
+    for (let i = 0; i < radios.length; i++) {
+        if (radios[i].checked) {
+            selecionado = radios[i];
+            break;
+        }
+}
+if (!selecionado) {
+    alert("Escolha uma opção antes de continuar.");
+    return;
+}
 
     const questao = listaDeQuestoes[numeroAtual];
     const perfil = questao.perfisPorAlternativa[selecionado.value];
 
+    // Soma ao json perfisTaticos ou perfisPersonalidade 
     if (questao.tipo == "tatico") {
         perfisTaticos[perfil]++;
     } else {
@@ -434,14 +450,14 @@ function mostrarResultado() {
         Perfil Tático: <strong>${perfilTatico}</strong><br>
         Perfil de Personalidade: <strong>${perfilPersonalidade}</strong>
     `;
-    document.getElementById('spanPontuacaoFinal').textContent = "Finalizado";
+    
     
 
     fetch("/quiz/salvar", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-    idUsuario: Number(idUsuario), // use a variável, não sessionStorage.ID_USUARIO
+    idUsuario: Number(idUsuario), // Converte o ID do usuário para número
     tatico: perfisTaticos,
     personalidade: perfisPersonalidade,
     perfilTatico: perfilTatico,
@@ -456,8 +472,18 @@ function mostrarResultado() {
 });
 }
 
-function maisPontuado(obj) {
-    return Object.entries(obj).reduce((a, b) => b[1] > a[1] ? b : a)[0];
+function maisPontuado(perfis) {
+    let maxPontuacao = 0;
+    let perfilMaisPontuado = "";
+
+    for (const [perfil, pontuacao] of Object.entries(perfis)) {
+        if (pontuacao > maxPontuacao) {
+            maxPontuacao = pontuacao;
+            perfilMaisPontuado = perfil;
+        }
+    }
+
+    return perfilMaisPontuado;
 }
 
 </script>

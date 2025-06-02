@@ -119,6 +119,7 @@ nav a:hover {
   margin: 0 auto 32px auto;
   text-align: center;
 }
+
 #spanQuestaoExibida {
   font-size: 32px;
   font-weight: 700;
@@ -152,11 +153,12 @@ nav a:hover {
   align-items: center;
 }
 
+/* Tira a bolinha de seleção de opção da classe radio */
 #opcoes input[type="radio"] {
   display: none;
 }
 
-/* Quando a opção for marcada */
+/* Altera a exibição da opção selecionada 0pra dar destaque*/
 #opcoes input[type="radio"]:checked + label.option {
   background: #F97316;
   color: #fff;
@@ -189,6 +191,7 @@ nav a:hover {
   box-shadow: 0 4px 16px rgba(0,0,0,0.10);
   transition: 0.2s ease
 }
+
 #btnSubmeter:hover {
   background: #F97316;
   color: #fff;
@@ -204,7 +207,6 @@ nav a:hover {
 #usuario {
   color: #F97316;
   font-weight: 700;
-
 }
 
 

@@ -2,17 +2,71 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard Quiz</title>
+    <title>CSProfiler | DashBoard</title>
+    <link rel="icon" type="image/x-icon" href="css/images/logo.png">
+    <link rel="stylesheet" href="css/style_dashboard_quiz.css">
 </head>
 <body>
-    <h1>Dashboard Quiz</h1>
-    <div>
-        <h2>Usuários cadastrados: <span id="totalUsuarios">...</span></h2>
-    </div>
-    <div>
-        <canvas id="usuariosPorDiaChart" width="600" height="300"></canvas>
-    </div>
+    <header>
+        <nav>
+            <a href="index.html">
+                <img src="css/images/logo.png" alt="Logo CS" id="logoCS">
+            </a>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="MUDAR">PERFIS POSSÍVEIS</a></li>
+                <li><a href="sobremim.html">SOBRE MIM</a></li>
+                <li><a href="login.html">LOGIN/CADASTRO</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Dashboard Quiz</h1>
+        <div>
+            <h2>Usuários cadastrados: <span id="totalUsuarios">...</span></h2>
+        </div>
+        <div>
+            <canvas id="usuariosPorDiaChart" width="600" height="300"></canvas>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-total">
+            <div class="footer-container">
+
+            <div class="footer1">
+
+                <div class="social">
+                <div class="rede-social">
+                    <a href="https://github.com/PedroAbramo"><img src="css/images/github.png" alt="github"></a>
+                </div>
+                <div class="rede-social">
+                    <a href="https://www.linkedin.com/in/pedro-cesar-0a91002ab/"><img src="css/images/linkedin.png" alt="linkedin"></a>
+                </div>
+                </div>
+
+                <div class="redirect-social">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sobremim.html">Sobre Mim</a></li>
+                    <li><a href="login.html">Login/Cadastro</a></li>
+                    <li><a href="MUDAR">Perfis Possíveis</a></li>
+                </ul>
+                </div>
+
+            </div>
+
+            </div>
+
+            <div class="footer-container2">
+            <p>copyright 2025 &copy; Designed by Pedro Cesar</p>
+            </div>
+        </div>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script>
         // Total de usuários
         fetch("/usuarios/contar")
@@ -20,22 +74,20 @@
             .then(data => {
                 document.getElementById("totalUsuarios").textContent = data[0].total;
             })
-            
 
         // Gráfico de usuários por dia
         fetch("/usuarios/usuarios-por-dia")
             .then(res => res.json())
             .then(data => {
-                const labels = data.map(item => {
-                    // Se vier como string, pega só a parte da data
-                    if (typeof item.dia === "string") {
-                        // Recebe valores como: "2025-05-31T15:30:00Z" e a partir do 10º caractere corta para pegar só a data
-                        // "2025-05-31T15:30:00Z" -> "2025-05-31"
-                        return item.dia.slice(0, 10);
-                    }
-                    return item.dia;
-                });
-
+                // Formata para DD-MM-YYYY
+                function formatarData(dataISO) {
+                    const dataObj = new Date(dataISO);
+                    const dia = String(dataObj.getDate()).padStart(2, '0');
+                    const mes = String(dataObj.getMonth() + 1).padStart(2, '0');
+                    const ano = dataObj.getFullYear();
+                    return `${dia}-${mes}-${ano}`;
+                }
+                const labels = data.map(item => formatarData(item.dia));
                 const valores = data.map(item => item.total);
 
                 new Chart(document.getElementById('usuariosPorDiaChart'), {
