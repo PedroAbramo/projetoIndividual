@@ -223,7 +223,7 @@
         alternativaD: "Em locais diferentes, tentando flanquear.", // Lurker
         alternativaE: "Em um lugar onde eu possa ter visão do que o time e o inimigo estão fazendo.", // IGL
         perfisPorAlternativa: {
-            aalternativaA: "entry_fragger",
+            alternativaA: "entry_fragger",
             alternativaB: "support",
             alternativaC: "awper",
             alternativaD: "lurker",
@@ -451,13 +451,24 @@ function mostrarResultado() {
         Perfil de Personalidade: <strong>${perfilPersonalidade}</strong>
     `;
     
-    
+
+    function maisPontuado(perfis) {
+        var maior = -1
+        var nomePerfil = ""
+        for (var perfil in perfis) {
+            if (perfis[perfil] > maior) {
+                maior = perfis[perfil]
+                nomePerfil = perfil
+            }
+        }
+        return nomePerfil
+    }
 
     fetch("/quiz/salvar", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-    idUsuario: Number(idUsuario), // Converte o ID do usuário para número
+    idUsuario: Number(idUsuario), // Convertendo o ID do usuário para número
     tatico: perfisTaticos,
     personalidade: perfisPersonalidade,
     perfilTatico: perfilTatico,
@@ -471,19 +482,5 @@ function mostrarResultado() {
     }
 });
 }
-
-function maisPontuado(perfis) {
-    let maxPontuacao = 0;
-    let perfilMaisPontuado = "";
-
-    for (const [perfil, pontuacao] of Object.entries(perfis)) {
-        if (pontuacao > maxPontuacao) {
-            maxPontuacao = pontuacao;
-            perfilMaisPontuado = perfil;
-        }
-    }
-
-    return perfilMaisPontuado;
-}
-
+    
 </script>
