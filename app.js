@@ -17,7 +17,7 @@ var app = express();
 
 var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
-// var para salvar os resultados do quiz
+// importação para salvar os resultados do quiz
 var quizRouter = require("./src/routes/quiz");
 
 app.use(express.json());

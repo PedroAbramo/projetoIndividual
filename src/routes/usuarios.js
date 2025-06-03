@@ -13,6 +13,8 @@ router.post("/autenticar", function (req, res) {
 });
 
 // Function para contar usuários
+// Tipo get porque não vai salvar dados, apenas vai contar
+// get é usado para obter dados do banco de dados
 router.get("/contar", function (req, res) {
     var usuarioModel = require("../models/usuarioModel");
     usuarioModel.contarUsuarios()

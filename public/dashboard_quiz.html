@@ -64,7 +64,7 @@
             </div>
         </div>
     </footer>
-
+    //
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
@@ -75,19 +75,13 @@
                 document.getElementById("totalUsuarios").textContent = data[0].total;
             })
 
-        // Gráfico de usuários por dia
+        // Gráfico de usuários por dia (mostrando apenas YYYY-MM-DD)
         fetch("/usuarios/usuarios-por-dia")
             .then(res => res.json())
             .then(data => {
-                // Formata para DD-MM-YYYY
-                function formatarData(dataISO) {
-                    const dataObj = new Date(dataISO);
-                    const dia = String(dataObj.getDate()).padStart(2, '0');
-                    const mes = String(dataObj.getMonth() + 1).padStart(2, '0');
-                    const ano = dataObj.getFullYear();
-                    return `${dia}-${mes}-${ano}`;
-                }
-                const labels = data.map(item => formatarData(item.dia));
+                
+                const labels = data.map(item => item.dia.slice(0, 10));
+                // slice(0, 10)pega apenas a parte YYYY-MM-DD que vem do db
                 const valores = data.map(item => item.total);
 
                 new Chart(document.getElementById('usuariosPorDiaChart'), {

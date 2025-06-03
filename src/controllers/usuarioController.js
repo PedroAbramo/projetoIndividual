@@ -74,6 +74,7 @@ function cadastrar(req, res) {
     }
 }
 
+// Torna essas funções visiveis para outros arquivos
 module.exports = {
     autenticar,
     cadastrar
