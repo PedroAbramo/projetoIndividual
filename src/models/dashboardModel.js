@@ -14,6 +14,4 @@ function buscarPontuacoesTaticas(idUsuario) {
 
 module.exports = {
     buscarPontuacoesTaticas,
-    contarUsuarios,
-    usuariosPorDia
 };

@@ -446,16 +446,75 @@ function mostrarResultado() {
     const perfilTatico = maisPontuado(perfisTaticos);
     const perfilPersonalidade = maisPontuado(perfisPersonalidade);
 
-    // Alteração para exibir o nome do perfil tático
+    // Formatação para exibir o nome do perfil tático
     let perfilTaticoExibido = perfilTatico;
     if (perfilTatico === 'entry_fragger') {
         perfilTaticoExibido = "Entry Fragger";
+    } else if (perfilTatico === 'igl') {
+        perfilTaticoExibido = "IGL - (In-Game-Leader)"
+    } else if (perfilTatico === 'awper') {
+        perfilTaticoExibido = "AWPer";
+    } else if (perfilTatico === 'lurker') {
+        perfilTaticoExibido = "Lurker";
+    } else if (perfilTatico === 'support') {
+        perfilTaticoExibido = "Support";
     }
 
+    // Formatação para exibir o nome do perfil de personalidade
+    let perfilPersonalidadeExibido = perfilPersonalidade;
+    if (perfilPersonalidade === 'hardcore') {
+        perfilPersonalidadeExibido = "Hardcore";
+    } else if (perfilPersonalidade === 'casual') {
+        perfilPersonalidadeExibido = "Casual";
+    } else if (perfilPersonalidade === 'social') {
+        perfilPersonalidadeExibido = "Social";
+    } else if (perfilPersonalidade === 'relaxado') {
+        perfilPersonalidadeExibido = "Relaxado";
+    } else if (perfilPersonalidade === 'aprendiz') {
+        perfilPersonalidadeExibido = "Aprendiz";
+    }
+
+    // Exibição frase sobre o perfil tático e de personalidade
+    let fraseTatica = ""
+    if (perfilTaticoExibido == 'Entry Fragger') {
+        fraseTatica = "🧨 “Você é o abridor de caminhos! Corajoso, rápido e agressivo, é quem cria espaço e inicia as batalhas com confiança.”"
+    } else if (perfilTaticoExibido == 'support') {
+        fraseTatica = "🛠️ “Você é a base do time! Sempre pronto para ajudar com flashes, smokes e cobertura, sua presença é essencial para a vitória.”"
+    } else if (perfilTaticoExibido == 'lurker') {
+        fraseTatica = "🍀 “Você é o mestre da surpresa! Silencioso e estratégico, pega os inimigos desprevenidos e vira o jogo do seu jeito.”"
+    } else if (perfilTaticoExibido == 'awper') {
+        fraseTatica = "🎯 “Você é o atirador de elite! Preciso, calmo e mortal à distância, sua mira define o rumo do round.”"
+    } else if (perfilTaticoExibido == 'IGL - (In-Game-Leader)') {
+        fraseTatica = "🧠 “Você é o cérebro da equipe! Comanda, planeja e organiza — é quem transforma cinco jogadores em um time coeso.”"
+    }
+
+    // Exibição frase sobre o perfil de personalidade
+    let frasePersonalidade = ""
+    if (perfilPersonalidadeExibido == 'Hardcore') {
+        frasePersonalidade = "🔥 “Você leva o jogo a sério! Cada partida é uma batalha, e sua vontade de vencer é o que te move.”"
+    } else if (perfilPersonalidadeExibido == 'Casual') {
+        frasePersonalidade = "⚔️ “Você gosta de competir, mas com leveza! Busca evoluir e vencer, sem deixar a diversão de lado.”"
+    } else if (perfilPersonalidadeExibido == 'Social') {
+        frasePersonalidade = "🎉 “Para você, o CS é sobre estar junto! O que importa não é o resultado, mas sim as risadas com os amigos.”"
+    } else if (perfilPersonalidadeExibido == 'Relaxado') {
+        frasePersonalidade = "😎 “Você joga pela diversão! Entra no servidor para relaxar, experimentar e curtir o momento sem pressão.”"
+    } else if (perfilPersonalidadeExibido == 'Aprendiz') {
+        frasePersonalidade = "📚 “Você é movido pela curiosidade! Está sempre testando, aprendendo e buscando evoluir a cada partida.”"
+    }
+
+
+
     document.getElementById('msgFinal').innerHTML = `
-        Perfil Tático: <strong>${perfilTaticoExibido}</strong><br>
-        Perfil de Personalidade: <strong>${perfilPersonalidade}</strong>
+        <span id="perfilTatico">Perfil Tático: <strong>${perfilTaticoExibido}</strong></span><br>
+
+        <span id="fraseTatica">${fraseTatica}<br></span>
+
+        <span id="perfilPersonalidade">Perfil de Personalidade: <strong>${perfilPersonalidadeExibido}</strong><br></span>
+
+        <span id="frasePersonalidade">${frasePersonalidade}</span>
     `;
+
+
     
 
     function maisPontuado(perfis) {
