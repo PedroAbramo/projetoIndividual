@@ -68,31 +68,38 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
-
-            new Chart(document.getElementById('radarTatico'), {
-                type: 'radar',
-                data: {
-                    labels: ['Entry Fragger', 'Support', 'Lurker', 'AWPer', 'IGL'],
-                    datasets: [{
-                        label: 'Pontos por Perfil',
-                        data: [0, 2, 3, 4, 5], // Exemplo de dados, substitua pelos reais
-                        fill: true,
-                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                        borderColor: 'rgb(54, 162, 235)',
-                        pointBackgroundColor: 'rgb(54, 162, 235)'
-                    }]
-                },
-                options: {
-                    scales: {
-                        r: {
-                            beginAtZero: true,
-                            min: 0,
-                            max: 10 // ajuste conforme sua escala
-                        }
-                    }
+    new Chart(document.getElementById('radarTatico'), {
+        type: 'radar',
+        data: {
+            labels: ['Entry Fragger', 'Support', 'Lurker', 'AWPer', 'IGL'],
+            datasets: [{
+                label: 'Pontos por Perfil',
+                data: [0, 2, 3, 4, 5], // Substitua pelos dados reais
+                fill: true,
+                backgroundColor: 'rgba(249, 115, 22, 0.2)', // laranja claro, já é transparente
+                borderColor: 'rgba(249, 115, 22, 1)',        // laranja forte
+                pointBackgroundColor: 'rgba(249, 115, 22, 1)',
+                pointBorderColor: 'rgba(255, 186, 90, 1)',
+                pointHoverBackgroundColor: 'rgba(255, 186, 90, 1)',
+                pointHoverBorderColor: 'rgba(249, 115, 22, 1)'
+            }]
+        },
+        options: {
+            scales: {
+                r: {
+                    beginAtZero: true,
+                    min: 0,
+                    max: 10, // Altere aqui para mudar a escala máxima
+                    angleLines: { color: "rgba(255,255,255,0.1)" }, // linhas mais suaves
+                    grid: { color: "rgba(255,255,255,0.1)" }, // grid mais suave
+                    pointLabels: { color: "#fff" } // cor dos textos dos perfis
                 }
-            });
-        
-    </script>
+            },
+            plugins: {
+                legend: { labels: { color: "#fff" } }
+            }
+        }
+    });
+</script>
 </body>
 </html>
