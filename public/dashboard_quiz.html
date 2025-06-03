@@ -23,12 +23,12 @@
 
     <main>
         <h1>Dashboard Quiz</h1>
-        <div>
-            <h2>Usuários cadastrados: <span id="totalUsuarios">...</span></h2>
+        
+        <!-- DashBoard 1 Traços para cada perfil do usuário (Pelo ID) -->
+         <div>
+            <canvas id="radarTatico" width="400" height="400"></canvas>
         </div>
-        <div>
-            <canvas id="usuariosPorDiaChart" width="600" height="300"></canvas>
-        </div>
+
     </main>
 
     <footer>
@@ -64,51 +64,35 @@
             </div>
         </div>
     </footer>
-    //
+    
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
-        // Total de usuários
-        fetch("/usuarios/contar")
-            .then(res => res.json())
-            .then(data => {
-                document.getElementById("totalUsuarios").textContent = data[0].total;
-            })
 
-        // Gráfico de usuários por dia (mostrando apenas YYYY-MM-DD)
-        fetch("/usuarios/usuarios-por-dia")
-            .then(res => res.json())
-            .then(data => {
-                
-                const labels = data.map(item => item.dia.slice(0, 10));
-                // slice(0, 10)pega apenas a parte YYYY-MM-DD que vem do db
-                const valores = data.map(item => item.total);
-
-                new Chart(document.getElementById('usuariosPorDiaChart'), {
-                    type: 'line',
-                    data: {
-                        labels: labels,
-                        datasets: [{
-                            label: 'Usuários cadastrados por dia',
-                            data: valores,
-                            borderColor: 'rgba(54, 162, 235, 1)',
-                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                            fill: true,
-                            tension: 0.2
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            legend: { display: true }
-                        },
-                        scales: {
-                            x: { title: { display: true, text: 'Dia' } },
-                            y: { title: { display: true, text: 'Usuários' }, beginAtZero: true }
+            new Chart(document.getElementById('radarTatico'), {
+                type: 'radar',
+                data: {
+                    labels: ['Entry Fragger', 'Support', 'Lurker', 'AWPer', 'IGL'],
+                    datasets: [{
+                        label: 'Pontos por Perfil',
+                        data: [0, 2, 3, 4, 5], // Exemplo de dados, substitua pelos reais
+                        fill: true,
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgb(54, 162, 235)',
+                        pointBackgroundColor: 'rgb(54, 162, 235)'
+                    }]
+                },
+                options: {
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            min: 0,
+                            max: 10 // ajuste conforme sua escala
                         }
                     }
-                });
+                }
             });
+        
     </script>
 </body>
 </html>

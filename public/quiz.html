@@ -446,8 +446,14 @@ function mostrarResultado() {
     const perfilTatico = maisPontuado(perfisTaticos);
     const perfilPersonalidade = maisPontuado(perfisPersonalidade);
 
+    // Alteração para exibir o nome do perfil tático
+    let perfilTaticoExibido = perfilTatico;
+    if (perfilTatico === 'entry_fragger') {
+        perfilTaticoExibido = "Entry Fragger";
+    }
+
     document.getElementById('msgFinal').innerHTML = `
-        Perfil Tático: <strong>${perfilTatico}</strong><br>
+        Perfil Tático: <strong>${perfilTaticoExibido}</strong><br>
         Perfil de Personalidade: <strong>${perfilPersonalidade}</strong>
     `;
     
