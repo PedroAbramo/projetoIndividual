@@ -37,6 +37,12 @@
             </div>
         </div> 
 
+        <div class="graficos-linha2">
+            <div>
+                <canvas id="doughnutTatico" width="400" height="400"></canvas>
+            </div>
+        </div>
+
     </main>
 
     <footer>
@@ -166,6 +172,7 @@
                     pointHoverBorderColor: 'rgba(249, 115, 22, 1)'
                 }]
             },
+            // personlização do gráfico
             options: {
                 scales: {
                     r: {
@@ -186,6 +193,78 @@
             }
         });
     }); 
+
+    // 3º DashBoard - Porcentagem de usuários com perfil tático
+    fetch(`/dashboard/porcentagem-tatico`)
+    .then (function(res) { return res.json(); })
+    .then (function(respostas) {
+        console.log(respostas);
+        console.log(respostas[0].perfil_tatico);
+
+    const valores = []
+    for (let i = 0; i < respostas.length; i++) {
+        valores.push(respostas[i].quantidade);
+    }
+    console.log(`Valores do BD: ${valores}`);
+
+    let total = 0;
+    for (let i = 0; i < valores.length; i++) {
+        total += valores[i];
+    }
+    console.log(`Soma dos valores: ${total}`);
+
+    let porcentagens = [];
+    for (let i = 0; i < valores.length; i++) {
+        porcentagens.push(((valores[i] / total) * 100).toFixed(1))
+    }
+    console.log(`Porcentagens: ${porcentagens}`);
+
+    
+   
+    new Chart(document.getElementById('doughnutTatico'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Entry Fragger', 'Support', 'Lurker', 'AWPer', 'IGL'],
+            datasets: [{
+                label: 'Porcentagem de Usuários %',
+                data: porcentagens, 
+                backgroundColor: [
+                    'rgba(249, 115, 22, 0.7)', 
+                    'rgba(255, 186, 90, 0.7)', 
+                    'rgba(255, 152, 0, 0.7)',  
+                    'rgba(255, 169, 77, 0.7)',
+                    'rgba(255, 184, 112, 0.7)'
+                ],
+                borderColor: [
+                    'rgba(249, 115, 22, 1)',
+                    'rgba(255, 186, 90, 1)',
+                    'rgba(255, 152, 0, 1)',
+                    'rgba(255, 169, 77, 1)',
+                    'rgba(255, 184, 112, 1)'
+                ],
+                borderWidth: 2
+            }]
+        },
+
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                    labels: {
+                        color: '#fff'
+                    }
+                },
+                title: {
+                    display: true,
+                    text: 'Porcentagem de Usuários por Perfil Tático',
+                    color: '#fff'
+                }
+            }
+        }
+    })
+ })
+
 
 
 </script>

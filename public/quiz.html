@@ -522,11 +522,12 @@ function mostrarResultado() {
 
 
     
-
+    // Perfis recebe tanto o json do perfil tático quanto o de personalidade
     function maisPontuado(perfis) {
         var maior = -1
         var nomePerfil = "" // nome do perfil mais pontuado
-        for (var perfil in perfis) {
+        for (var perfil in perfis) { // 
+        // A variavel perfil na primeira vez que o for rodar vai ser "entry_fragger",  na segunda "support"...
             if (perfis[perfil] > maior) {
                 maior = perfis[perfil]
                 nomePerfil = perfil

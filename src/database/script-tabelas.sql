@@ -47,6 +47,8 @@ CREATE TABLE resultado_quiz (
 
 -- usuario teste
 
+-- select * from usuario left join resultado_quiz on idUsuario = fk_idUsuario;
+
 select * from usuario;
 
 select * from nivel_personalidade;
@@ -54,3 +56,9 @@ select * from nivel_personalidade;
 select * from nivel_tatico;
 
 select * from resultado_quiz;
+
+
+
+
+
+

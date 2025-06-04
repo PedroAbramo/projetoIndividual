@@ -23,7 +23,18 @@ function buscarPontuacoesPersonalidade(idUsuario) {
     return database.executar(instrucao);
 }
 
+function buscarPorcentagemTatico() {
+    var instrucao = `
+        SELECT perfil_tatico, COUNT(*) AS quantidade
+        FROM resultado_quiz
+        GROUP BY perfil_tatico
+        ORDER BY quantidade DESC;
+    `;
+    return database.executar(instrucao);
+}
+
 module.exports = {
     buscarPontuacoesTaticas,
-    buscarPontuacoesPersonalidade
+    buscarPontuacoesPersonalidade,
+    buscarPorcentagemTatico
 };
