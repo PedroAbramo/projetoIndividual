@@ -6,7 +6,7 @@ CREATE TABLE usuario (
     idUsuario INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(45) NOT NULL,
     email VARCHAR(60) NOT NULL UNIQUE,
-    senha VARCHAR(50) NOT NULL,
+    senha VARCHAR(255) NOT NULL,
     data_criacao DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -46,9 +46,6 @@ CREATE TABLE resultado_quiz (
 );
 
 -- usuario teste
-insert into usuario (nome, email, senha)
-values
-('Pedro', 'pedro@gmail.com', '123'); 
 
 select * from usuario;
 
@@ -57,6 +54,3 @@ select * from nivel_personalidade;
 select * from nivel_tatico;
 
 select * from resultado_quiz;
-
-
-

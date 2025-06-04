@@ -1,0 +1,130 @@
+-- Inserts Simulação CSProfiler
+
+-- Inserção dos usuários
+INSERT INTO usuario (nome, email, senha, data_criacao) VALUES
+('Pedro', 'pedro@gmail.com', SHA2('123', 256), '2025-05-24 13:15:00'), -- id = 1
+('Ana Souza', 'ana.souza@email.com', SHA2('senha123', 256), '2025-05-24 10:15:00'),
+('Bruno Lima', 'bruno.lima@email.com', SHA2('abc12345', 256), '2025-05-24 10:47:00'),
+('Carla Mendes', 'carla.mendes@email.com', SHA2('qwerty12', 256), '2025-05-24 11:30:00'),
+('Daniel Rocha', 'daniel.rocha@email.com', SHA2('senha456', 256), '2025-05-24 12:05:00'),
+('Eduarda Alves', 'eduarda.alves@email.com', SHA2('edu2023', 256), '2025-05-24 13:22:00'),
+('Felipe Martins', 'felipe.martins@email.com', SHA2('123felipe', 256), '2025-05-24 14:40:00'),
+('Gabriela Costa', 'gabriela.costa@email.com', SHA2('gab2024', 256), '2025-05-25 09:10:00'),
+('Henrique Dias', 'henrique.dias@email.com', SHA2('dias321', 256), '2025-05-25 09:58:00'),
+('Isabela Nunes', 'isabela.nunes@email.com', SHA2('isa12345', 256), '2025-05-25 10:22:00'),
+('João Pedro', 'joao.pedro@email.com', SHA2('joao@2023', 256), '2025-05-25 11:05:00'),
+('Karina Ribeiro', 'karina.ribeiro@email.com', SHA2('krb2023', 256), '2025-05-25 12:30:00'),
+('Lucas Almeida', 'lucas.almeida@email.com', SHA2('lucas123', 256), '2025-05-25 13:00:00'),
+('Mariana Teixeira', 'mariana.teixeira@email.com', SHA2('mteix2024', 256), '2025-05-25 14:50:00'),
+('Nicolas Torres', 'nicolas.torres@email.com', SHA2('nicktorres', 256), '2025-05-25 15:20:00'),
+('Olívia Fernandes', 'olivia.fernandes@email.com', SHA2('liv123456', 256), '2025-05-26 09:00:00'),
+('Paulo Henrique', 'paulo.henrique@email.com', SHA2('ph2025', 256), '2025-05-26 09:30:00'),
+('Quésia Lopes', 'quesia.lopes@email.com', SHA2('qlopes99', 256), '2025-05-26 10:10:00'),
+('Rafael Castro', 'rafael.castro@email.com', SHA2('castro123', 256), '2025-05-26 11:45:00'),
+('Sabrina Moura', 'sabrina.moura@email.com', SHA2('sabmoura', 256), '2025-05-26 13:10:00'),
+('Thiago Pinto', 'thiago.pinto@email.com', SHA2('tpinto2024', 256), '2025-05-26 14:00:00'),
+('Ursula Lima', 'ursula.lima@email.com', SHA2('urs123', 256), '2025-05-27 08:55:00'),
+('Vinícius Freitas', 'vinicius.freitas@email.com', SHA2('vfreitas', 256), '2025-05-27 10:00:00'),
+('Wesley Silva', 'wesley.silva@email.com', SHA2('wes123', 256), '2025-05-27 11:15:00'),
+('Xênia Duarte', 'xenia.duarte@email.com', SHA2('xduarte01', 256), '2025-05-27 13:45:00'),
+('Yuri Camargo', 'yuri.camargo@email.com', SHA2('ycamargo', 256), '2025-05-27 15:00:00'),
+('Zilda Rocha', 'zilda.rocha@email.com', SHA2('zilda2025', 256), '2025-05-28 09:25:00'),
+('André Vasconcelos', 'andre.vasconcelos@email.com', SHA2('andvas', 256), '2025-05-28 10:15:00'),
+('Beatriz Faria', 'beatriz.faria@email.com', SHA2('bfaria', 256), '2025-05-28 12:00:00'),
+('Caio Lopes', 'caio.lopes@email.com', SHA2('caio321', 256), '2025-05-28 13:30:00'),
+('Débora Silva', 'debora.silva@email.com', SHA2('deb2024', 256), '2025-05-28 15:00:00');
+
+-- Inserção dos perfis táticos
+INSERT INTO nivel_tatico (entry_fragger, support, lurker, awper, igl, fk_idUsuario) VALUES
+(4, 1, 2, 3, 0, 1),
+(1, 3, 4, 0, 2, 2),
+(2, 3, 1, 0, 4, 3),
+(3, 0, 2, 1, 4, 4),
+(0, 4, 3, 2, 1, 5),
+(1, 2, 0, 4, 3, 6),
+(2, 0, 4, 3, 1, 7),
+(3, 2, 1, 4, 0, 8),
+(0, 1, 4, 2, 3, 9),
+(2, 4, 0, 3, 1, 10),
+(4, 0, 1, 2, 3, 11),
+(1, 4, 2, 3, 0, 12),
+(0, 3, 1, 4, 2, 13),
+(2, 1, 3, 0, 4, 14),
+(3, 1, 4, 2, 0, 15),
+(0, 2, 1, 3, 4, 16),
+(2, 3, 0, 1, 4, 17),
+(1, 2, 3, 4, 0, 18),
+(3, 0, 2, 4, 1, 19),
+(0, 2, 4, 1, 3, 20),
+(4, 2, 3, 1, 0, 21),
+(2, 0, 1, 4, 3, 22),
+(3, 4, 0, 2, 1, 23),
+(1, 0, 3, 2, 4, 24),
+(0, 3, 2, 1, 4, 25);
+
+-- Inserção dos perfis de personalidade
+INSERT INTO nivel_personalidade (hardcore, casual, social, relaxado, aprendiz, fk_idUsuario) VALUES
+(2, 0, 1, 3, 4, 1),
+(1, 2, 3, 4, 0, 2),
+(3, 1, 4, 0, 2, 3),
+(0, 3, 2, 1, 4, 4),
+(4, 2, 0, 1, 3, 5),
+(1, 4, 2, 0, 3, 6),
+(2, 3, 4, 1, 0, 7),
+(3, 0, 2, 4, 1, 8),
+(4, 1, 3, 2, 0, 9),
+(0, 4, 1, 2, 3, 10),
+(2, 1, 0, 4, 3, 11),
+(3, 2, 1, 0, 4, 12),
+(1, 3, 0, 4, 2, 13),
+(4, 0, 2, 3, 1, 14),
+(0, 1, 4, 2, 3, 15),
+(2, 3, 1, 4, 0, 16),
+(3, 2, 0, 1, 4, 17),
+(4, 3, 2, 0, 1, 18),
+(0, 2, 3, 1, 4, 19),
+(1, 0, 4, 2, 3, 20),
+(2, 4, 0, 3, 1, 21),
+(3, 1, 2, 0, 4, 22),
+(4, 0, 3, 2, 1, 23),
+(1, 2, 0, 4, 3, 24),
+(0, 3, 1, 4, 2, 25);
+
+
+-- Inserção dos resultados do quiz
+INSERT INTO resultado_quiz (data_realizacao, perfil_tatico, perfil_personalidade, fk_idUsuario, fk_nivelTatico, fk_nivelPersonalidade) VALUES
+('2025-05-24 13:20:00', 'entry_fragger', 'aprendiz', 1, 1, 1),
+('2025-05-24 10:50:00', 'lurker', 'relaxado', 2, 2, 2),
+('2025-05-24 11:00:00', 'igl', 'social', 3, 3, 3),
+('2025-05-24 12:10:00', 'igl', 'aprendiz', 4, 4, 4),
+('2025-05-24 13:30:00', 'support', 'hardcore', 5, 5, 5),
+('2025-05-24 14:45:00', 'awper', 'casual', 6, 6, 6),
+('2025-05-25 09:15:00', 'lurker', 'social', 7, 7, 7),
+('2025-05-25 10:00:00', 'awper', 'relaxado', 8, 8, 8),
+('2025-05-25 10:30:00', 'lurker', 'hardcore', 9, 9, 9),
+('2025-05-25 11:10:00', 'support', 'aprendiz', 10, 10, 10),
+('2025-05-25 12:40:00', 'entry_fragger', 'relaxado', 11, 11, 11),
+('2025-05-25 13:10:00', 'support', 'aprendiz', 12, 12, 12),
+('2025-05-25 15:00:00', 'awper', 'relaxado', 13, 13, 13),
+('2025-05-26 09:10:00', 'igl', 'hardcore', 14, 14, 14),
+('2025-05-26 09:40:00', 'entry_fragger', 'social', 15, 15, 15),
+('2025-05-26 10:30:00', 'igl', 'relaxado', 16, 16, 16),
+('2025-05-26 11:50:00', 'igl', 'aprendiz', 17, 17, 17),
+('2025-05-26 13:15:00', 'casual', 'hardcore', 18, 18, 18),
+('2025-05-26 14:10:00', 'awper', 'aprendiz', 19, 19, 19),
+('2025-05-27 09:00:00', 'lurker', 'social', 20, 20, 20),
+('2025-05-27 10:10:00', 'entry_fragger', 'casual', 21, 21, 21),
+('2025-05-27 11:20:00', 'awper', 'aprendiz', 22, 22, 22),
+('2025-05-27 13:50:00', 'igl', 'hardcore', 23, 23, 23),
+('2025-05-27 15:10:00', 'igl', 'relaxado', 24, 24, 24),
+('2025-05-28 09:30:00', 'entry_fragger', 'aprendiz', 25, 25, 25);
+
+
+
+
+
+
+
+
+
+
