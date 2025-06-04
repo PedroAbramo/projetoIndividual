@@ -68,16 +68,29 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
+
+    const idUsuario = sessionStorage.getItem("ID_USUARIO") // Pega o ID do usuário da sessão
+
+
+fetch(`/dashboard/pontuacoes-taticas/${idUsuario}`)
+.then(function(res) { return res.json(); })
+.then(function(data) {
     new Chart(document.getElementById('radarTatico'), {
         type: 'radar',
         data: {
             labels: ['Entry Fragger', 'Support', 'Lurker', 'AWPer', 'IGL'],
             datasets: [{
                 label: 'Pontos por Perfil',
-                data: [0, 2, 3, 4, 5], // Substitua pelos dados reais
+                data: [
+                    data.entry_fragger,
+                    data.support,
+                    data.lurker,
+                    data.awper,
+                    data.igl
+                ],
                 fill: true,
-                backgroundColor: 'rgba(249, 115, 22, 0.2)', // laranja claro, já é transparente
-                borderColor: 'rgba(249, 115, 22, 1)',        // laranja forte
+                backgroundColor: 'rgba(249, 115, 22, 0.2)',
+                borderColor: 'rgba(249, 115, 22, 1)',
                 pointBackgroundColor: 'rgba(249, 115, 22, 1)',
                 pointBorderColor: 'rgba(255, 186, 90, 1)',
                 pointHoverBackgroundColor: 'rgba(255, 186, 90, 1)',
@@ -89,10 +102,10 @@
                 r: {
                     beginAtZero: true,
                     min: 0,
-                    max: 10, // Altere aqui para mudar a escala máxima
-                    angleLines: { color: "rgba(255,255,255,0.1)" }, // linhas mais suaves
-                    grid: { color: "rgba(255,255,255,0.1)" }, // grid mais suave
-                    pointLabels: { color: "#fff" } // cor dos textos dos perfis
+                    max: 10,
+                    angleLines: { color: "rgba(255,255,255,0.1)" },
+                    grid: { color: "rgba(255,255,255,0.1)" },
+                    pointLabels: { color: "#fff" }
                 }
             },
             plugins: {
@@ -100,6 +113,7 @@
             }
         }
     });
+});
 </script>
 </body>
 </html>

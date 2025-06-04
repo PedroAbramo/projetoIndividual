@@ -19,6 +19,8 @@ var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
 // importação para salvar os resultados do quiz
 var quizRouter = require("./src/routes/quiz");
+// importação do dashboard
+var dashboardRouter = require("./src/routes/dashboard");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -30,6 +32,7 @@ app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 // Rota para salvar os resultados do quiz
 app.use("/quiz", quizRouter);
+app.use("/dashboard", dashboardRouter);
 
 
 
