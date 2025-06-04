@@ -172,3 +172,15 @@ main {
   background-color: rgba(0, 0, 0, 0.77);
   height: 57px;
 }
+
+#nome-usuario {
+  margin-right: auto;
+  font-size: 20px;
+  width: auto;
+  height: auto;
+}
+
+#usuario {
+  color: #F97316;
+  font-weight: 700;
+}

@@ -12,11 +12,12 @@
             <a href="index.html">
                 <img src="css/images/logo.png" alt="Logo CS" id="logoCS">
             </a>
+            <p id="nome-usuario">Olá, <span id="usuario">MUDAR</span></p>
             <ul>
                 <li><a href="index.html">HOME</a></li>
                 <li><a href="MUDAR">PERFIS POSSÍVEIS</a></li>
-                <li><a href="sobremim.html">SOBRE MIM</a></li>
-                <li><a href="login.html">LOGIN/CADASTRO</a></li>
+                <li><a href="quiz.html">QUIZ</a></li>
+                <li><a href="#" id="sair" onclick="limparSessao()">SAIR</a></li>
             </ul>
         </nav>
     </header>
@@ -68,52 +69,64 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
+    function limparSessao() {
+        // Limpa os dados da sessão
+        sessionStorage.clear();
+        window.location.href = "login.html";
+    }
+    
+    // Mudar o nome do usuário no header
+    const nomeUsuario = sessionStorage.getItem("NOME_USUARIO");
+    document.getElementById("usuario").textContent = nomeUsuario;
 
     const idUsuario = sessionStorage.getItem("ID_USUARIO") // Pega o ID do usuário da sessão
+    
 
 
-fetch(`/dashboard/pontuacoes-taticas/${idUsuario}`)
-.then(function(res) { return res.json(); })
-.then(function(data) {
-    new Chart(document.getElementById('radarTatico'), {
-        type: 'radar',
-        data: {
-            labels: ['Entry Fragger', 'Support', 'Lurker', 'AWPer', 'IGL'],
-            datasets: [{
-                label: 'Pontos por Perfil',
-                data: [
-                    data.entry_fragger,
-                    data.support,
-                    data.lurker,
-                    data.awper,
-                    data.igl
-                ],
-                fill: true,
-                backgroundColor: 'rgba(249, 115, 22, 0.2)',
-                borderColor: 'rgba(249, 115, 22, 1)',
-                pointBackgroundColor: 'rgba(249, 115, 22, 1)',
-                pointBorderColor: 'rgba(255, 186, 90, 1)',
-                pointHoverBackgroundColor: 'rgba(255, 186, 90, 1)',
-                pointHoverBorderColor: 'rgba(249, 115, 22, 1)'
-            }]
-        },
-        options: {
-            scales: {
-                r: {
-                    beginAtZero: true,
-                    min: 0,
-                    max: 10,
-                    angleLines: { color: "rgba(255,255,255,0.1)" },
-                    grid: { color: "rgba(255,255,255,0.1)" },
-                    pointLabels: { color: "#fff" }
-                }
+    fetch(`/dashboard/pontuacoes-taticas/${idUsuario}`)
+    // vai retornar em um json os pontos de cada perfil tático do usuário
+    .then(function(res) { return res.json(); })
+    // o parâmetro data é o objeto JSON retornado
+    .then(function(data) {
+        new Chart(document.getElementById('radarTatico'), {
+            type: 'radar',
+            data: {
+                labels: ['Entry Fragger', 'Support', 'Lurker', 'AWPer', 'IGL'],
+                datasets: [{
+                    label: 'Pontos por Perfil',
+                    data: [
+                        data.entry_fragger,
+                        data.support,
+                        data.lurker,
+                        data.awper,
+                        data.igl
+                    ],
+                    fill: true,
+                    backgroundColor: 'rgba(249, 115, 22, 0.2)',
+                    borderColor: 'rgba(249, 115, 22, 1)',
+                    pointBackgroundColor: 'rgba(249, 115, 22, 1)',
+                    pointBorderColor: 'rgba(255, 186, 90, 1)',
+                    pointHoverBackgroundColor: 'rgba(255, 186, 90, 1)',
+                    pointHoverBorderColor: 'rgba(249, 115, 22, 1)'
+                }]
             },
-            plugins: {
-                legend: { labels: { color: "#fff" } }
+            options: {
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        min: 0,
+                        max: 10,
+                        angleLines: { color: "rgba(255,255,255,0.1)" },
+                        grid: { color: "rgba(255,255,255,0.1)" },
+                        pointLabels: { color: "#fff" }
+                    }
+                },
+                plugins: {
+                    legend: { labels: { color: "#fff" } }
+                }
             }
-        }
+        });
     });
-});
 </script>
 </body>
 </html>

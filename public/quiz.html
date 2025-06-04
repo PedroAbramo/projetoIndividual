@@ -23,6 +23,7 @@
         <li><a href="index.html">HOME</a></li>
         <li><a href="MUDAR">PERFIS POSSÍVEIS</a></li>
         <li><a href="dashboard_quiz.html">DASHBOARD</a></li>
+        <li><a href="#" id="sair" onclick="limparSessao()">SAIR</a></li>
       </ul>
     </nav>
   </header>
@@ -100,22 +101,6 @@
 
 </html>
 <script>
-
-    let perfisTaticos = {
-    "entry_fragger": 0,
-    "support": 0,
-    "lurker": 0,
-    "awper": 0,
-    "igl": 0
-    }
-
-    let perfisPersonalidade = {
-    "hardcore": 0,
-    "casual": 0,
-    "social": 0,
-    "relaxado": 0,
-    "aprendiz": 0,
-    }
 
     const listaDeQuestoes = [
     {
@@ -360,8 +345,29 @@
     },
 ]
 
+    let perfisTaticos = {
+    "entry_fragger": 0,
+    "support": 0,
+    "lurker": 0,
+    "awper": 0,
+    "igl": 0
+    }
+
+    let perfisPersonalidade = {
+    "hardcore": 0,
+    "casual": 0,
+    "social": 0,
+    "relaxado": 0,
+    "aprendiz": 0,
+    }
 
 let numeroAtual = 0;
+
+function limparSessao() {
+        // Limpa os dados da sessão
+        sessionStorage.clear();
+        window.location.href = "login.html";
+    }
 
 function onloadEsconder() {
     // Busca o nome do usuário do sessionStorage para exibir na página
