@@ -488,7 +488,7 @@ function mostrarResultado() {
         fraseTatica = "🛠️ “Você é a base do time! Sempre pronto para ajudar com flashes, smokes e cobertura, sua presença é essencial para a vitória.”"
     } else if (perfilTaticoExibido == 'Lurker') {
         fraseTatica = "🍀 “Você é o mestre da surpresa! Silencioso e estratégico, pega os inimigos desprevenidos e vira o jogo do seu jeito.”"
-    } else if (perfilTaticoExibido == 'Awper') {
+    } else if (perfilTaticoExibido == 'AWPer') {
         fraseTatica = "🎯 “Você é o atirador de elite! Preciso, calmo e mortal à distância, sua mira define o rumo do round.”"
     } else if (perfilTaticoExibido == 'IGL - (In-Game-Leader)') {
         fraseTatica = "🧠 “Você é o cérebro da equipe! Comanda, planeja e organiza — é quem transforma cinco jogadores em um time coeso.”"
@@ -539,18 +539,12 @@ function mostrarResultado() {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-    idUsuario: Number(idUsuario), // Convertendo o ID do usuário para número
-    tatico: perfisTaticos,
-    personalidade: perfisPersonalidade,
-    perfilTatico: perfilTatico,
-    perfilPersonalidade: perfilPersonalidade
-})
-})
-.then(res => res.json())
-.then(data => {
-    if (data.ok) {
-        alert("Resultado salvo com sucesso!");
-    }
+        idUsuario: Number(idUsuario),
+        tatico: perfisTaticos,
+        personalidade: perfisPersonalidade,
+        perfilTatico: perfilTatico,
+        perfilPersonalidade: perfilPersonalidade
+    })
 });
 }
     
