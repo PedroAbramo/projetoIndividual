@@ -12,6 +12,18 @@ function buscarPontuacoesTaticas(idUsuario) {
     return database.executar(instrucao);
 }
 
+function buscarPontuacoesPersonalidade(idUsuario) {
+    var instrucao = `
+        SELECT hardcore, casual, social, relaxado, aprendiz
+        FROM nivel_personalidade
+        WHERE fk_idUsuario = ${idUsuario}
+        ORDER BY idPersonalidade DESC
+        LIMIT 1;
+    `;
+    return database.executar(instrucao);
+}
+
 module.exports = {
     buscarPontuacoesTaticas,
+    buscarPontuacoesPersonalidade
 };

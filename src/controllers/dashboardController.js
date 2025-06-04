@@ -8,4 +8,15 @@ function buscarPontuacoesTaticas(req, res) {
         })
 }
 
-module.exports = { buscarPontuacoesTaticas }
+function buscarPontuacoesPersonalidade(req, res) {
+    var idUsuario = req.params.idUsuario;
+    dashboardModel.buscarPontuacoesPersonalidade(idUsuario)
+        .then(function(resultado) {
+            res.json(resultado[0]);
+        })
+}
+
+module.exports = { 
+    buscarPontuacoesTaticas,
+    buscarPontuacoesPersonalidade,
+}

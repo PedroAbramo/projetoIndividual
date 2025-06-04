@@ -23,12 +23,19 @@
     </header>
 
     <main>
-        <h1>Dashboard Quiz</h1>
-        
-        <!-- DashBoard 1 Traços para cada perfil do usuário (Pelo ID) -->
-         <div>
-            <canvas id="radarTatico" width="400" height="400"></canvas>
-        </div>
+        <h1>Estatísticas</h1>
+
+        <div class="graficos-linha1">
+            <!-- DashBoard 1 Traços para cada perfil tático do usuário -->
+            <div>
+                <canvas id="radarTatico" width="400" height="400"></canvas>
+            </div>
+
+            <!-- DashBoard 2 Traços para cada perfil de personalidade do usuário  -->
+            <div>
+                <canvas id="radarPersonalidade" width="400" height="400"></canvas>
+            </div>
+        </div> 
 
     </main>
 
@@ -82,7 +89,7 @@
     const idUsuario = sessionStorage.getItem("ID_USUARIO") // Pega o ID do usuário da sessão
     
 
-
+    // 1º DashBoard - Pontos por perfil tático
     fetch(`/dashboard/pontuacoes-taticas/${idUsuario}`)
     // vai retornar em um json os pontos de cada perfil tático do usuário
     .then(function(res) { return res.json(); })
@@ -127,6 +134,54 @@
             }
         });
     });
+
+    // 2º DashBoard - Pontos por perfil de personalidade 
+    fetch(`/dashboard/pontuacoes-personalidade/${idUsuario}`)
+    // vai retornar em um json os pontos de cada perfil tático do usuário
+    .then(function(res) { return res.json(); })
+    // o parâmetro data é o objeto JSON retornado
+    .then(function(data) {
+        new Chart(document.getElementById('radarPersonalidade'), {
+            type: 'radar',
+            data: {
+                labels: ['Hardcore', 'Casual', 'Social', 'Relaxado', 'Aprendiz'],
+                datasets: [{
+                    label: 'Pontos por Perfil',
+                    data: [
+                        data.hardcore,
+                        data.casual,
+                        data.social,
+                        data.relaxado,
+                        data.aprendiz
+                    ],
+                    fill: true,
+                    backgroundColor: 'rgba(249, 115, 22, 0.2)',
+                    borderColor: 'rgba(249, 115, 22, 1)',
+                    pointBackgroundColor: 'rgba(249, 115, 22, 1)',
+                    pointBorderColor: 'rgba(255, 186, 90, 1)',
+                    pointHoverBackgroundColor: 'rgba(255, 186, 90, 1)',
+                    pointHoverBorderColor: 'rgba(249, 115, 22, 1)'
+                }]
+            },
+            options: {
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        min: 0,
+                        max: 10,
+                        angleLines: { color: "rgba(255,255,255,0.1)" },
+                        grid: { color: "rgba(255,255,255,0.1)" },
+                        pointLabels: { color: "#fff" }
+                    }
+                },
+                plugins: {
+                    legend: { labels: { color: "#fff" } }
+                }
+            }
+        });
+    }); 
+
+
 </script>
 </body>
 </html>
