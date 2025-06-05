@@ -34,7 +34,7 @@
             <h3>Bem-vindo ao Quiz<br>CSProfiler!</h3>
             <p>Descubra seu perfil tático e de personalidade no CS!<br>
             Responda as perguntas com sinceridade para obter um<br>
-            resultado fiel ao seu estilo de jogo.<br>
+            resultado fiel ao seu estilo de jogo.<br><br>
             Clique no botão abaixo para começar.</p>
         </div>
 
@@ -411,7 +411,11 @@ function mostrarQuestao(indice) {
 
 function desmarcarRadioButtons() {
     const radios = document.getElementsByName("option");
-    radios.forEach(r => r.checked = false);
+    console.log(radios);
+    
+    for (let i = 0; i < radios.length; i++) {
+        radios[i].checked = false;
+    }
 }
 
 function submeter() {
