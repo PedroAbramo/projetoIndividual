@@ -20,4 +20,8 @@ router.get("/porcentagem-personalidade", function(req, res) {
     dashboardController.buscarPorcentagemPersonalidade(req, res);
 });
 
+router.get("/perfil-tatico/:idUsuario", function(req, res) {
+    dashboardController.buscarPerfilTatico(req, res);
+});
+
 module.exports = router;

@@ -1,3 +1,4 @@
+const { bus } = require("nodemon/lib/utils");
 var dashboardModel = require("../models/dashboardModel");
 
 function buscarPontuacoesTaticas(req, res) {
@@ -30,9 +31,18 @@ function buscarPorcentagemPersonalidade(req, res) {
         })
 }
 
+function buscarPerfilTatico (req, res) {
+    var idUsuario = req.params.idUsuario;
+    dashboardModel.buscarPerfilTatico(idUsuario)
+        .then(function(resultado) {
+            res.json(resultado[0]);
+        })
+}
+
 module.exports = { 
     buscarPontuacoesTaticas,
     buscarPontuacoesPersonalidade,
     buscarPorcentagemTatico,
-    buscarPorcentagemPersonalidade
+    buscarPorcentagemPersonalidade,
+    buscarPerfilTatico,
 }

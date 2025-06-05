@@ -25,6 +25,18 @@
     <main>
         <h1>Estatísticas</h1>
 
+        <div class="KPI">
+            <div class="kpi-container">
+                <h3>Perfil Tático</h3>
+                <p id="perfilTaticoPredominante">mudar</p>
+            </div>
+
+            <div class="kpi-container">
+                <h3>Perfil de Personalidade</h3>
+                <p id="perfilPersonalidadePredominante">mudar</p>
+            </div>
+        </div>
+
         <div class="graficos-linha1">
             <!-- DashBoard 1 Traços para cada perfil tático do usuário -->
             <div>
@@ -99,13 +111,48 @@
     document.getElementById("usuario").textContent = nomeUsuario;
 
     const idUsuario = sessionStorage.getItem("ID_USUARIO") // Pega o ID do usuário da sessão
+
+    // KPI do perfil tático e perfil de personalidade predominantes
+    fetch(`/dashboard/perfil-tatico/${idUsuario}`)
+    // vai retornar em um json o perfil tático predominante do usuário com base na query do sql
+    .then(function(res) { return res.json(); })
+    // data é o json retornado
+    .then(function(data) {
+        console.log(data)
+
+        if (data.tatico == "entry_fragger") {
+            data.tatico = "Entry Fragger";
+        } else if (data.tatico == "support") {
+            data.tatico = "Support";
+        } else if (data.tatico == "lurker") {
+            data.tatico = "Lurker";
+        } else if (data.tatico == "awper") {
+            data.tatico = "AWPer";
+        } else if (data.tatico == "igl") {
+            data.tatico = "IGL - In-Game Leader";
+        }
+
+        if (data.personalidade == "hardcore") {
+            data.personalidade = "Hardcore";
+        } else if (data.personalidade == "casual") {
+            data.personalidade = "Casual";
+        } else if (data.personalidade == "social") {
+            data.personalidade = "Social";
+        } else if (data.personalidade == "relaxado") {
+            data.personalidade = "Relaxado";
+        } else if (data.personalidade == "aprendiz") {
+            data.personalidade = "Aprendiz";
+        }
+
+        document.getElementById("perfilTaticoPredominante").textContent = data.tatico;
+        document.getElementById("perfilPersonalidadePredominante").textContent = data.personalidade;
+    });
     
 
     // 1º DashBoard - Pontos por perfil tático
     fetch(`/dashboard/pontuacoes-taticas/${idUsuario}`)
     // vai retornar em um json os pontos de cada perfil tático do usuário
     .then(function(res) { return res.json(); })
-    // o parâmetro data é o objeto JSON retornado
     .then(function(data) {
         new Chart(document.getElementById('radarTatico'), {
             type: 'radar',

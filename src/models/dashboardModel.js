@@ -43,11 +43,23 @@ function buscarPorcentagemPersonalidade() {
     return database.executar(instrucao);
 }
 
+function buscarPerfilTatico(idUsuario) {
+    var instrucao = `
+        SELECT fk_idUsuario AS idUsuario, perfil_tatico AS tatico, perfil_personalidade AS personalidade, data_realizacao as realizacao 
+        FROM resultado_quiz 
+        WHERE fk_idUsuario = ${idUsuario}
+        ORDER BY data_realizacao DESC 
+        LIMIT 1;
+    `;
+    return database.executar(instrucao);
+}
+
 
 
 module.exports = {
     buscarPontuacoesTaticas,
     buscarPontuacoesPersonalidade,
     buscarPorcentagemTatico,
-    buscarPorcentagemPersonalidade
+    buscarPorcentagemPersonalidade,
+    buscarPerfilTatico,
 };

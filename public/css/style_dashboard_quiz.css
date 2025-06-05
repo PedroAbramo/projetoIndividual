@@ -199,3 +199,28 @@ main {
   gap: 200px;
   margin-top: 50px;
 }
+
+.KPI {
+  display: flex;
+  gap: 380px;
+}
+
+.kpi-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 1);
+  color: #F97316;
+  width: 230px;
+  height: 100px;
+  border-radius: 20px;
+}
+
+.kpi-container h3 {
+  color: #1B1F23;
+}
+
+#perfilTaticoPredominante, #perfilPersonalidadePredominante {
+  font-weight: 700;
+}
