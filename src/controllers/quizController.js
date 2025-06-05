@@ -6,6 +6,7 @@ function salvar(req, res) {
 
     quizModel.salvarResultadosQuiz(idUsuario, tatico, personalidade, perfilTatico, perfilPersonalidade)
         .then(function(resultado) {
+            console.log("Resultados do quiz salvos com sucesso:", resultado);
             res.json(resultado);
             // resposta em formato json, nesse caso, o resultado do quiz
         })
