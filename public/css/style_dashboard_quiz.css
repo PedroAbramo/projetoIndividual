@@ -60,7 +60,7 @@ nav a:hover {
 }
 
 main {
-  background: url(images/background_neutro.png);
+  background: url(images/background_neutro_esticado.png);
   width: 100vw;
   min-height: 80vh;
   display: flex;
@@ -223,4 +223,8 @@ main {
 
 #perfilTaticoPredominante, #perfilPersonalidadePredominante {
   font-weight: 700;
+}
+
+#administrativo {
+  display: none;
 }

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>CSProfiler | DashBoard</title>
+    <link rel="icon" type="image/x-icon" href="css/images/logo.png">
+    <link rel="stylesheet" href="css/style_dashboard_quiz.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">
+                <img src="css/images/logo.png" alt="Logo CS" id="logoCS">
+            </a>
+            <p id="nome-usuario">Olá, <span id="usuario">MUDAR</span></p>
+            <ul>
+                <li><a href="administrativo.html">ADMINISTRATIVO</a></li>
+                <li><a href="dashboard_quiz.html">VOLTAR</a></li>
+                <li><a href="#" id="sair" onclick="limparSessao()">SAIR</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Estatísticas</h1>
+
+
+        <div class="graficos-linha1">
+            <!-- DashBoard 1 Traços para cada perfil tático do usuário -->
+            <div>
+                <canvas id="radarTatico" width="400" height="400"></canvas>
+            </div>
+
+            <!-- DashBoard 2 Traços para cada perfil de personalidade do usuário  -->
+            <div>
+                <canvas id="radarPersonalidade" width="400" height="400"></canvas>
+            </div>
+        </div> 
+
+    </main>
+
+    <footer>
+        <div class="footer-total">
+            <div class="footer-container">
+
+            <div class="footer1">
+
+                <div class="social">
+                <div class="rede-social">
+                    <a href="https://github.com/PedroAbramo"><img src="css/images/github.png" alt="github"></a>
+                </div>
+                <div class="rede-social">
+                    <a href="https://www.linkedin.com/in/pedro-cesar-0a91002ab/"><img src="css/images/linkedin.png" alt="linkedin"></a>
+                </div>
+                </div>
+
+                <div class="redirect-social">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sobremim.html">Sobre Mim</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                    <li><a href="MUDAR">Perfis Possíveis</a></li>
+                </ul>
+                </div>
+
+            </div>
+
+            </div>
+
+            <div class="footer-container2">
+            <p>copyright 2025 &copy; Designed by Pedro Cesar</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script onload="">
+ 
+</script>
+</body>
+</html>

@@ -6,7 +6,7 @@
     <link rel="icon" type="image/x-icon" href="css/images/logo.png">
     <link rel="stylesheet" href="css/style_dashboard_quiz.css">
 </head>
-<body>
+<body onload="administrativo()">
     <header>
         <nav>
             <a href="index.html">
@@ -14,8 +14,8 @@
             </a>
             <p id="nome-usuario">Olá, <span id="usuario">MUDAR</span></p>
             <ul>
-                <li><a href="index.html">HOME</a></li>
                 <li><a href="MUDAR">PERFIS POSSÍVEIS</a></li>
+                <li id="administrativo"><a href="administrativo.html">ADMINISTRATIVO</a></li>
                 <li><a href="quiz.html">QUIZ</a></li>
                 <li><a href="#" id="sair" onclick="limparSessao()">SAIR</a></li>
             </ul>
@@ -82,7 +82,7 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="sobremim.html">Sobre Mim</a></li>
-                    <li><a href="login.html">Login/Cadastro</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
                     <li><a href="MUDAR">Perfis Possíveis</a></li>
                 </ul>
                 </div>
@@ -99,7 +99,16 @@
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script onload="">
+    <script>
+
+    function administrativo() {
+        console.log(sessionStorage.getItem("ID_USUARIO"));
+        if (sessionStorage.getItem("ID_USUARIO") == "1") {
+            document.getElementById("administrativo").style.display = "block";
+        } 
+    }
+
+
     function limparSessao() {
         // Limpa os dados da sessão
         sessionStorage.clear();
