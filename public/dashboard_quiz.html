@@ -37,9 +37,15 @@
             </div>
         </div> 
 
+
         <div class="graficos-linha2">
+            <!-- DashBoard 3 Porcentagem de usuários com perfil tático -->
             <div>
                 <canvas id="doughnutTatico" width="400" height="400"></canvas>
+            </div>
+            <!-- DashBoard 4 Porcentagem de usuários com perfil de personalidade -->
+            <div>
+                <canvas id="doughnutPersonalidade" width="400" height="400"></canvas>   
             </div>
         </div>
 
@@ -81,7 +87,7 @@
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script>
+    <script onload="">
     function limparSessao() {
         // Limpa os dados da sessão
         sessionStorage.clear();
@@ -224,9 +230,9 @@
     new Chart(document.getElementById('doughnutTatico'), {
         type: 'doughnut',
         data: {
-            labels: ['Entry Fragger', 'Support', 'Lurker', 'AWPer', 'IGL'],
+            labels: ['Entry Fragger', 'Support', 'Lurker', 'AWPer', 'IGL - In-Game Leader'],
             datasets: [{
-                label: 'Porcentagem de Usuários %',
+                label: 'Porcentagem de Usuários (%)',
                 data: porcentagens, 
                 backgroundColor: [
                     'rgba(249, 115, 22, 0.7)', 
@@ -258,6 +264,77 @@
                 title: {
                     display: true,
                     text: 'Porcentagem de Usuários por Perfil Tático',
+                    color: '#fff'
+                }
+            }
+        }
+    })
+ })
+
+     // 4º DashBoard - Porcentagem de usuários com perfil tático
+    fetch(`/dashboard/porcentagem-personalidade`)
+    .then (function(res) { return res.json(); })
+    .then (function(respostas) {
+        console.log(respostas);
+        
+
+    const valores2 = []
+    for (let i = 0; i < respostas.length; i++) {
+        valores2.push(respostas[i].quantidade);
+    }
+    console.log(`Valores do BD: ${valores2}`);
+
+    let total2 = 0;
+    for (let i = 0; i < valores2.length; i++) {
+        total2 += valores2[i];
+    }
+    console.log(`Soma dos valores: ${total2}`);
+
+    let porcentagens2 = [];
+    for (let i = 0; i < valores2.length; i++) {
+        porcentagens2.push(((valores2[i] / total2) * 100).toFixed(1))
+    }
+    console.log(`Porcentagens: ${porcentagens2}`);
+
+    
+   
+    new Chart(document.getElementById('doughnutPersonalidade'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Hardcore', 'Relaxado', 'Social', 'Casual', 'Aprendiz'],
+            datasets: [{
+                label: 'Porcentagem de Usuários (%)',
+                data: porcentagens2, 
+                backgroundColor: [
+                    'rgba(249, 115, 22, 0.7)', 
+                    'rgba(255, 186, 90, 0.7)', 
+                    'rgba(255, 152, 0, 0.7)',  
+                    'rgba(255, 169, 77, 0.7)',
+                    'rgba(255, 184, 112, 0.7)'
+                ],
+                borderColor: [
+                    'rgba(249, 115, 22, 1)',
+                    'rgba(255, 186, 90, 1)',
+                    'rgba(255, 152, 0, 1)',
+                    'rgba(255, 169, 77, 1)',
+                    'rgba(255, 184, 112, 1)'
+                ],
+                borderWidth: 2
+            }]
+        },
+
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                    labels: {
+                        color: '#fff'
+                    }
+                },
+                title: {
+                    display: true,
+                    text: 'Porcentagem de Usuários por Perfil de Personalidade',
                     color: '#fff'
                 }
             }

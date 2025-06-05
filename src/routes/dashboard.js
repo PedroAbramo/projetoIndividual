@@ -7,13 +7,17 @@ var dashboardController = require("../controllers/dashboardController")
 router.get("/pontuacoes-taticas/:idUsuario", function(req, res) {
     dashboardController.buscarPontuacoesTaticas(req, res);
 });
-// é usado pq é um valor dinânimio, ou seja, pode variar de acordo com o usuário logado
+// é usado pq é um valor dinânimio, ou seja, pode variar de acordo com o id do usuário logado
 router.get("/pontuacoes-personalidade/:idUsuario", function(req, res) {
     dashboardController.buscarPontuacoesPersonalidade(req, res);
 });
 
 router.get("/porcentagem-tatico", function(req, res) {
     dashboardController.buscarPorcentagemTatico(req, res);
+});
+
+router.get("/porcentagem-personalidade", function(req, res) {
+    dashboardController.buscarPorcentagemPersonalidade(req, res);
 });
 
 module.exports = router;

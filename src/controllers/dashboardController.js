@@ -23,8 +23,16 @@ function buscarPorcentagemTatico(req, res) {
         })
 }
 
+function buscarPorcentagemPersonalidade(req, res) {
+    dashboardModel.buscarPorcentagemPersonalidade()
+        .then(function(resultado) {
+            res.json(resultado);
+        })
+}
+
 module.exports = { 
     buscarPontuacoesTaticas,
     buscarPontuacoesPersonalidade,
     buscarPorcentagemTatico,
+    buscarPorcentagemPersonalidade
 }
