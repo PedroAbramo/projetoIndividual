@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>CSProfiler | DashBoard</title>
     <link rel="icon" type="image/x-icon" href="css/images/logo.png">
-    <link rel="stylesheet" href="css/style_dashboard_quiz.css">
+    <link rel="stylesheet" href="css/style.administrativo.css">
 </head>
 <body>
     <header>
@@ -25,16 +25,13 @@
         <h1>Estatísticas</h1>
 
 
-        <div class="graficos-linha1">
-            <!-- DashBoard 1 Traços para cada perfil tático do usuário -->
+        <div class="radarGeral">
+            <!-- DashBoard 1  -->
             <div>
-                <canvas id="radarTatico" width="400" height="400"></canvas>
+                <canvas id="dash1" width="600" height="400"></canvas>
             </div>
 
-            <!-- DashBoard 2 Traços para cada perfil de personalidade do usuário  -->
-            <div>
-                <canvas id="radarPersonalidade" width="400" height="400"></canvas>
-            </div>
+            
         </div> 
 
     </main>
@@ -76,12 +73,68 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
-        
+        const datas = []
+        const quantidades = []
+
         fetch(`/administrativo/buscarQuantidadeUsuarios`)
             .then(function(res) { return res.json(); })
             .then(function(data) {
                 console.log(data);
-            })
+                for (let i = 0; i < data.length; i++) {
+                const dataAlterada = data[i].dia.split('T')[0];
+                console.log("Data:", dataAlterada, "Quantidade:", data[i].quantidade);
+                quantidades.push(data[i].quantidade);
+                
+                const ano = dataAlterada.split('-')[0];
+                const mes = dataAlterada.split('-')[1];
+                const dia = dataAlterada.split('-')[2];
+
+                const dataFormatada = `${dia}/${mes}/${ano}`;
+                console.log("Data formatada:", dataFormatada);
+                datas.push(dataFormatada);
+            }
+        
+
+    const ctx = document.getElementById('dash1');
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: datas,
+                    datasets: [{
+                        label: 'Quantidade de Usuários por Dia',
+                        data: quantidades,
+                        borderWidth: 2,
+                        backgroundColor: 'rgba(249, 115, 22, 0.15)', // laranja claro
+                        borderColor: 'rgba(249, 115, 22, 1)',         // laranja forte
+                        pointBackgroundColor: 'rgba(255, 186, 90, 1)', // laranja claro
+                        pointBorderColor: 'rgba(249, 115, 22, 1)',
+                        pointRadius: 5,
+                        tension: 0.2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { labels: { color: "#fff" } }
+                    },
+                    scales: {
+                        x: {
+                            ticks: { color: "#fff" },
+                            grid: { color: "rgba(255,255,255,0.1)" }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            ticks: { color: "#fff", stepSize: 1 },
+                            grid: { color: "rgba(255,255,255,0.1)" }
+                        }
+                    }
+                }
+            });
+        });
+
+            
+            
     </script>
 </body>
 </html>
