@@ -1,4 +1,3 @@
-# projetoIndividual
 ![logo CSPROFILER](public/css/images/csprofiler.png)
 # 🎮 CSProfiler – Descubra seu Perfil no Counter-Strike
 
