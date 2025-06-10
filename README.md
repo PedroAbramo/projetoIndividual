@@ -21,7 +21,11 @@ Tudo isso é feito através de um **formulário com 15 perguntas de múltipla es
 
 ✅ Quiz com 15 perguntas (10 táticas + 5 de personalidade)  
 ✅ Classificação automática com base nas respostas  
-✅ Exibição do resultado com frases descritivas 
+✅ Exibição do resultado com frases descritivas
+✅ Tela de DashBoard com gráficos que exibem a pontuação em cada perfil
+✅ Painel de visualização de dados relacionados aos usuários para administradores
+
+
 
 ---
 
@@ -38,7 +42,9 @@ Tudo isso é feito através de um **formulário com 15 perguntas de múltipla es
 - HTML5  
 - CSS3  
 - JavaScript 
-- [🟩 API Web Data Viz para conexão com banco de dados]
+- Biblioteca Chart.JS para criação de gráficos
+- [🔗 API Web Data Viz para conexão com banco de dados]
+
 
 ---
 
@@ -50,8 +56,14 @@ Tudo isso é feito através de um **formulário com 15 perguntas de múltipla es
    git clone https://github.com/PedroAbramo/projetoIndividual.git
 
 2. Abra o GitBash no terminal do VS Code e utilize o comando `npm install` para instalar os módulos da API
-   
-3. Através do mesmo terminal, utilize o comando `npm start`
+
+3. Execute no MySQL o Script para criação do banco de dados fornecido dentro da pasta `📁scr` ➡️ `📁database`
+
+4. Caso queira dados para teste do site, execute o Script de inserção de dados fictícios para uma melhor experiência
+
+5. Altere o arquivo `.env.dev` com a conexão utilizada para criar o banco de dados anteriormente
+
+5. Através do mesmo terminal onde foram instalados os módulos da API, utilize o comando `npm start`
 
 4. Entre no link `http://localhost:3333` que será disponibilizado e aproveite o site!
 
@@ -61,7 +73,7 @@ Tudo isso é feito através de um **formulário com 15 perguntas de múltipla es
 
 ## 👨‍💻 Autor
 
-Desenvolvido com dedicação por **Pedro Cesar Abramo de Almeida**  
+Desenvolvido com dedicação e esforço por **Pedro Cesar Abramo de Almeida**  
 - 📬 Entre em contato comigo para dúvidas
 - ✉️ pedro.dalmeida@sptech.school 
 - 🔗 [LinkedIn](https://www.linkedin.com/in/pedro-cesar-0a91002ab/)
