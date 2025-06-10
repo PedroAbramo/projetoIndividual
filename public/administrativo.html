@@ -31,7 +31,10 @@
                 <canvas id="dash1" width="600" height="400"></canvas>
             </div>
 
-            
+            <!-- DashBoard 2  -->
+            <div>
+                <canvas id="dash2" width="600" height="400"></canvas>
+            </div>
         </div> 
 
     </main>
@@ -132,6 +135,48 @@
                 }
             });
         });
+
+        fetch(`/administrativo/QuantidadeQuizRespondidos`)
+            .then(function(res) { return res.json(); })
+            .then(function(data) {
+            console.log(data)
+
+        const ctx = document.getElementById('dash2');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["Usuários que responderam o Quiz", "Usuários que não responderam o Quiz"],
+                datasets: [{
+                    label: 'Estatísticas do Quiz',
+                    data: [data[0].qtd_comQuiz, data[0].qtd_semQuiz],
+                    borderWidth: 2,
+                    backgroundColor: 'rgba(249, 115, 22, 0.35)', // laranja forte
+                    borderColor: 'rgba(249, 115, 22, 1)',
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { labels: { color: "#fff" } }
+                },
+                scales: {
+                    x: {
+                        ticks: { color: "#fff" },
+                        grid: { color: "rgba(255,255,255,0.1)" }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: { color: "#fff", stepSize: 1 },
+                        grid: { color: "rgba(255,255,255,0.1)" }
+                    }
+                }
+            }
+        })
+    })
+
+        
+        
 
             
             

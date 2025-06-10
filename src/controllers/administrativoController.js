@@ -7,6 +7,14 @@ function buscarQuantidadeUsuarios(req, res) {
         })
 }
 
+function QuantidadeQuizRespondidos(req, res) {
+    administrativoModel.QuantidadeQuizRespondidos()
+        .then(function(resultado) {
+            res.json(resultado);
+        })
+}
+
 module.exports = { 
-    buscarQuantidadeUsuarios 
+    buscarQuantidadeUsuarios,
+    QuantidadeQuizRespondidos
 };

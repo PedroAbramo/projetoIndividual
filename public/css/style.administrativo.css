@@ -231,9 +231,10 @@ main {
 
 .radarGeral {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
+  gap: 100px;
   margin-top: 20px;
   font-size: 18px;
   color: #ffffff;
