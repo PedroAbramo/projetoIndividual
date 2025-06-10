@@ -52,7 +52,6 @@
 
     </main>
 
-    <footer>
         <div class="footer-total">
             <div class="footer-container">
 
@@ -84,11 +83,13 @@
             <p>copyright 2025 &copy; Designed by Pedro Cesar</p>
             </div>
         </div>
-    </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
+
+    const nomeUsuario = sessionStorage.getItem("NOME_USUARIO");
+    document.getElementById("usuario").textContent = nomeUsuario;
 
         function limparSessao() {
         sessionStorage.clear();
@@ -101,6 +102,14 @@
             console.log(data)
             
             document.getElementById("usuariosCadastrados").textContent = data[0].usuarios_registrados;
+        })
+
+        fetch(`/administrativo/quizzesRespondidos`)
+        .then(function(res) { return res.json(); })
+        .then(function(data){
+            console.log(data)
+            
+            document.getElementById("quizzesRespondidos").textContent = data[0].quizzesRespondidos;
         })
 
 

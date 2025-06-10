@@ -67,8 +67,12 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding-top: 40px;
-  padding-bottom: 60px;
+  padding-top: 70px;
+  padding-bottom: 172px;
+}
+
+main h1 {
+  font-weight: 600;
 }
 
 .caixa-container {
@@ -244,6 +248,3 @@ main {
   border-radius: 25px;
 }
 
-main h1 {
-  font-weight: 600;
-}

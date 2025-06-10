@@ -14,6 +14,10 @@ router.get("/usuariosRegistrados", function(req, res) {
     administrativoController.usuariosRegistrados(req, res);
 });
 
+router.get("/quizzesRespondidos", function(req, res) {
+    administrativoController.quizzesRespondidos(req, res);
+});
+
 
 
 

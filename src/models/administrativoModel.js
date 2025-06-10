@@ -26,10 +26,17 @@ function usuariosRegistrados() {
     return database.executar(instrucao);
 }
 
+function quizzesRespondidos() {
+    var instrucao = `
+    select count(*) as quizzesRespondidos from resultado_quiz;;
+    `;
+    return database.executar(instrucao);
+}
 
 
 module.exports = {
     buscarQuantidadeUsuarios,
     QuantidadeQuizRespondidos,
-    usuariosRegistrados
+    usuariosRegistrados,
+    quizzesRespondidos
 }
