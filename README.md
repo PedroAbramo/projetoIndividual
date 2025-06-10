@@ -1,5 +1,5 @@
 # projetoIndividual
-
+![logo CSPROFILER](public/css/images/csprofiler.png)
 # 🎮 CSProfiler – Descubra seu Perfil no Counter-Strike
 
 **CSProfiler** é um projeto web interativo que identifica o **perfil tático** e a **personalidade de jogo** dos jogadores de Counter-Strike por meio de um quiz inteligente, rápido e intuitivo.  
