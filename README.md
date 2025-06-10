@@ -21,8 +21,8 @@ Tudo isso é feito através de um **formulário com 15 perguntas de múltipla es
 
 ✅ Quiz com 15 perguntas (10 táticas + 5 de personalidade)  
 ✅ Classificação automática com base nas respostas  
-✅ Exibição do resultado com frases descritivas
-✅ Tela de DashBoard com gráficos que exibem a pontuação em cada perfil
+✅ Exibição do resultado com frases descritivas <br>
+✅ Tela de DashBoard com gráficos que exibem a pontuação em cada perfil <br>
 ✅ Painel de visualização de dados relacionados aos usuários para administradores
 
 
