@@ -42,7 +42,7 @@ Tudo isso é feito através de um **formulário com 15 perguntas de múltipla es
 - HTML5  
 - CSS3  
 - JavaScript 
-- Biblioteca Chart.JS para criação de gráficos
+- [📊 Biblioteca Chart.JS para criação de gráficos]
 - [🔗 API Web Data Viz para conexão com banco de dados]
 
 
