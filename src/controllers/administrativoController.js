@@ -14,7 +14,15 @@ function QuantidadeQuizRespondidos(req, res) {
         })
 }
 
+function usuariosRegistrados(req, res) {
+    administrativoModel.usuariosRegistrados()
+        .then(function(resultado) {
+            res.json(resultado);
+        })
+}
+
 module.exports = { 
     buscarQuantidadeUsuarios,
-    QuantidadeQuizRespondidos
+    QuantidadeQuizRespondidos,
+    usuariosRegistrados
 };

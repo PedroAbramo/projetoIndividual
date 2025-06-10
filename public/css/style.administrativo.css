@@ -221,8 +221,9 @@ main {
   color: #1B1F23;
 }
 
-#perfilTaticoPredominante, #perfilPersonalidadePredominante {
+#usuariosCadastrados, #quizzesRespondidos {
   font-weight: 700;
+  font-size: 25px;
 }
 
 #administrativo {

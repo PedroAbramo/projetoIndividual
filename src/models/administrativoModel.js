@@ -15,12 +15,21 @@ function QuantidadeQuizRespondidos() {
     var instrucao = `
     SELECT (SELECT COUNT(DISTINCT rq.fk_idUsuario) FROM resultado_quiz rq WHERE rq.fk_idUsuario IS NOT NULL) AS qtd_comQuiz, 
     (SELECT COUNT(*) FROM usuario u WHERE u.idUsuario NOT IN ( SELECT DISTINCT fk_idUsuario FROM resultado_quiz )) AS qtd_semQuiz;
-
     `;
     return database.executar(instrucao);
 }
 
+function usuariosRegistrados() {
+    var instrucao = `
+    select count(*) as usuarios_registrados from usuario;
+    `;
+    return database.executar(instrucao);
+}
+
+
+
 module.exports = {
     buscarQuantidadeUsuarios,
-    QuantidadeQuizRespondidos
+    QuantidadeQuizRespondidos,
+    usuariosRegistrados
 }

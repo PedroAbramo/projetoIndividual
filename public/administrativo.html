@@ -24,8 +24,21 @@
     <main>
         <h1>Estatísticas</h1>
 
+        <div class="KPI">
+            <div class="kpi-container">
+                <h3>Usuários Cadastrados</h3>
+                <p id="usuariosCadastrados">mudar</p>
+            </div>
 
-        <div class="radarGeral">
+            <div class="kpi-container">
+                <h3>Quizzes Respondidos</h3>
+                <p id="quizzesRespondidos">mudar</p>
+            </div>
+        </div>
+
+    <div class="radarGeral">
+
+
             <!-- DashBoard 1  -->
             <div>
                 <canvas id="dash1" width="600" height="400"></canvas>
@@ -35,7 +48,7 @@
             <div>
                 <canvas id="dash2" width="600" height="400"></canvas>
             </div>
-        </div> 
+    </div> 
 
     </main>
 
@@ -76,6 +89,21 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
+
+        function limparSessao() {
+        sessionStorage.clear();
+        window.location.href = "login.html";
+    }
+
+        fetch(`/administrativo/usuariosRegistrados`)
+        .then(function(res) { return res.json(); })
+        .then(function(data){
+            console.log(data)
+            
+            document.getElementById("usuariosCadastrados").textContent = data[0].usuarios_registrados;
+        })
+
+
         const datas = []
         const quantidades = []
 

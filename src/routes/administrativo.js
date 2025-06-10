@@ -10,6 +10,11 @@ router.get("/QuantidadeQuizRespondidos", function(req, res) {
     administrativoController.QuantidadeQuizRespondidos(req, res);
 });
 
+router.get("/usuariosRegistrados", function(req, res) {
+    administrativoController.usuariosRegistrados(req, res);
+});
+
+
 
 
 module.exports = router;
