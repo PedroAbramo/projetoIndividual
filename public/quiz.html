@@ -533,9 +533,8 @@ function mostrarResultado() {
 
         <span id="frasePersonalidade">${frasePersonalidade}</span>
     `;
+    document.getElementById('msgFinal').className = 'resultado-quiz';
 
-
-    
     // Perfis recebe tanto o json do perfil tático quanto o de personalidade
     function maisPontuado(perfis) {
         var maior = -1

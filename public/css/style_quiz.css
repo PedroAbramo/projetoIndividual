@@ -245,5 +245,57 @@ nav a:hover {
     margin-top: 10px;
   }
 
+#msgFinal span {
+  display: block;
+  margin-bottom: 16px;
+}
+
+#perfilTatico strong,
+#perfilPersonalidade strong {
+  color: #F97316;
+  font-size: 24px;
+}
+
+#fraseTatica,
+#frasePersonalidade {
+  font-style: italic;
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.resultado-quiz {
+  background: rgba(27, 31, 35, 0.92);
+  border: 2px solid #F97316;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  padding: 40px 32px 32px 32px;
+  margin: 32px auto 0 auto;
+  max-width: 600px;
+  color: #fff;
+  text-align: center;
+  animation: fadeInUp 0.7s;
+}
+
+.resultado-quiz #perfilTatico strong,
+.resultado-quiz #perfilPersonalidade strong {
+  color: #F97316;
+  font-size: 26px;
+}
+
+.resultado-quiz #fraseTatica,
+.resultado-quiz #frasePersonalidade {
+  color: #c9d1d9;
+  font-style: italic;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+#pontuacaoFinalJogo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 
 
